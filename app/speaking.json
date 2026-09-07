@@ -1,0 +1,195 @@
+{
+  "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
+  "_version": "2026-09-07",
+  "_canonical_url": "https://sukantratnakar.com/speaking",
+  "person": {
+    "name": "Sukant Ratnakar",
+    "bio": "I am an industrial engineer by training, hold an MSc in Strategic Planning from Edinburgh Business School, Heriot-Watt University, UK, and am a Certified Management Consultant. I founded Quantraz Inc. in Saskatoon and have written more than thirty books, including Change Anesthesiology, White Space Thinking, Iknetix and ZERO.",
+    "bio_italic_titles": [
+      "Change Anesthesiology",
+      "White Space Thinking",
+      "Iknetix",
+      "ZERO"
+    ]
+  },
+  "talk": {
+    "length_minutes": 45,
+    "subtitle": "A 45-minute talk on why change stalls — and what to fix before it starts",
+    "audience_line": "For a leadership team, a board, a credit union or an all-staff session. 45 minutes with questions.",
+    "signature_title": "The signature talk: Change Anesthesiology",
+    "body": [
+      "For twenty years, roughly seven in ten change initiatives have fallen short — an estimated $2.3 trillion a year. The frameworks have multiplied; the number has not moved.",
+      "My argument is that we have been treating the wrong condition. Resistance is not the obstacle — it is the signal. It tells you something true about the conditions upstream: drained energy, narrow perspective, minds already full before your project arrived. The real work happens before the initiative begins.",
+      "Hence the name — in 1846, anaesthesia did not make surgery better, it made surgery survivable."
+    ],
+    "takeaways": [
+      "A different first question: not who is resisting? but what conditions made resistance sensible?",
+      "A four-stage model they can apply to a change already underway, or one still on the drawing board.",
+      "A practical read on why past initiatives stalled, before the next one launches."
+    ],
+    "fee_statement": "There is no speaking fee.",
+    "fee_reason": "These talks are how the work finds its audience.",
+    "tailoring_note": "Happy to shape the session around a change your organisation is going through right now."
+  },
+  "topics": [
+    {
+      "name": "Change Anesthesiology",
+      "blurb": "Why resistance is never the problem, and what to fix before a change begins."
+    },
+    {
+      "name": "White Space Thinking",
+      "blurb": "Finding opportunity in the gaps others have not noticed."
+    },
+    {
+      "name": "Perspective Thinking",
+      "blurb": "How leaders widen the view before they make the call."
+    },
+    {
+      "name": "Tinergy",
+      "blurb": "The small units of energy that decide whether a team moves or stalls."
+    },
+    {
+      "name": "Kinetic Energy of Ideas",
+      "blurb": "What turns an idea from talk into movement."
+    },
+    {
+      "name": "Building Your Multitasking Strength",
+      "blurb": "Carrying several demands without losing quality."
+    },
+    {
+      "name": "Evolution Management",
+      "blurb": "Running an organisation as a system that evolves, not one that ends."
+    }
+  ],
+  "workshop": {
+    "intro": "The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only. All three are fixed scope, so the price on this page is the price. Larger groups, a series run across several teams, or ongoing advisory work are quoted separately.",
+    "tiers": [
+      {
+        "label": "Three hours, in-house",
+        "fee": "$2,500 CAD",
+        "unit": "",
+        "cap": "Up to 12 participants",
+        "note": "Same fee whether you bring 6 people or 12, so you are free to invite the room that needs to be there."
+      },
+      {
+        "label": "Three hours, individual seats",
+        "fee": "$250 CAD",
+        "unit": "per person",
+        "cap": "Minimum 6, capped at 12",
+        "note": "For leaders who want the session without booking one for their whole organisation. Scheduled dates appear on the calendar."
+      },
+      {
+        "label": "Full day, in-house",
+        "fee": "$4,500 CAD",
+        "unit": "",
+        "cap": "Up to 12 participants",
+        "note": "Three hours moves fast and covers one change. The full day gives each of the four stages its own working session, room for more than one change, and time to leave with a written plan your team has agreed on."
+      }
+    ]
+  },
+  "logistics": {
+    "host_provides": [
+      "A room. If you have a screen or projector I'll use it; otherwise I bring my own.",
+      "45 minutes for the talk, three hours or a full day for the workshop — plus a few minutes either side.",
+      "For a full day, lunch and refreshments for your people. I do not cater.",
+      "Nothing else. No pre-reading, no prep from your team."
+    ],
+    "delivery": "The 45-minute talk runs in person in Saskatoon and within 100 km, or online anywhere. The workshop is always in person. Beyond 100 km, anywhere in North America, travel and accommodation are on the host."
+  },
+  "booking": {
+    "website": "sukantratnakar.com",
+    "email": "sukant@quantraz.com",
+    "phone": "+1 236 991 3630",
+    "contact_label": "For an initial conversation:",
+    "cal_talk_url": "https://cal.com/sukantratnakar/speaking-talk",
+    "cal_workshop_url": "https://cal.com/sukantratnakar/workshop-enquiry",
+    "_note": "Both Cal.com event types exist and these links are live."
+  },
+  "video": {
+    "youtube_id": "",
+    "caption": "Ninety seconds from the launch of Change Anesthesiology — Alice Turner Library, Saskatoon, August 2026.",
+    "show": false
+  },
+  "teaser": {
+    "heading": "Talks and workshops",
+    "line": "A free 45-minute talk on why change stalls — for leadership teams, boards and credit unions.",
+    "cta": "See speaking →"
+  },
+  "meta": {
+    "page_title": "Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management",
+    "page_description": "A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
+  },
+  "page": {
+    "_comment": "Page chrome: headings, button labels, FAQ, proof and the PDF. Edit here too — the templates contain no text of their own.",
+    "h1": "Talks and Workshops",
+    "nav_label": "Speaking",
+    "hero": {
+      "cta_primary": "Book a talk",
+      "cta_secondary": "See the workshop"
+    },
+    "sections": {
+      "talk_heading": "The 45-minute talk",
+      "takeaways_heading": "What your people take away",
+      "topics_heading": "Seven talks to choose from",
+      "topics_col_talk": "Talk",
+      "topics_col_covers": "What it covers",
+      "workshop_heading": "The workshop",
+      "workshop_inhouse_label": "In-house, at your organisation",
+      "workshop_openseat_label": "Open workshop, individual seats",
+      "workshop_cta": "Enquire about a workshop",
+      "logistics_heading": "What a host needs to provide",
+      "booking_heading": "Book a time",
+      "booking_intro": "Pick a slot that suits your team. If nothing fits, write to me and we will find one.",
+      "booking_talk_label": "The 45-minute talk",
+      "booking_workshop_label": "Workshop enquiry",
+      "about_heading": "About Sukant",
+      "about_books_link": "See the full catalogue",
+      "proof_heading": "Where I have spoken",
+      "faq_heading": "Questions"
+    },
+    "pdf": {
+      "filename": "Sukant_Ratnakar_Speaker_One_Pager.pdf",
+      "label": "Download the one-page speaker note (PDF)"
+    },
+    "books_catalogue_url": "https://systovation.com",
+    "portrait": "/images/portrait.png",
+    "proof": {
+      "show": true,
+      "lines": [
+        "Alice Turner Library, Saskatoon — public launch audience, 13 August 2026. Organised by Systovation and the Elite Club of Canada."
+      ],
+      "quote": "",
+      "quote_attribution": ""
+    },
+    "faq": [
+      {
+        "q": "Do you charge for the 45-minute talk?",
+        "a": "No. There is no fee, and no obligation to book anything after it."
+      },
+      {
+        "q": "Will this turn into a sales pitch?",
+        "a": "No. The talk is the talk. If you want to go further there is a workshop, and it is priced on this page."
+      },
+      {
+        "q": "We have more than 12 people, or we want more than one session.",
+        "a": "Those are quoted separately. A larger group, a series across teams, or ongoing advisory work are all possible — they are just not fixed scope, so the number depends on what you need. Tell me the shape of it."
+      },
+      {
+        "q": "Can you deliver online?",
+        "a": "The 45-minute talk, yes — anywhere. The workshop is in person only; it does not work as a screen session."
+      },
+      {
+        "q": "How far will you travel?",
+        "a": "Saskatoon and within 100 km at no charge. Anywhere else in North America, travel and accommodation are on the host."
+      },
+      {
+        "q": "Can we record it?",
+        "a": "Yes, for internal use."
+      },
+      {
+        "q": "Can we buy books for attendees?",
+        "a": "Yes — ask and I will quote a bulk rate."
+      }
+    ]
+  }
+}

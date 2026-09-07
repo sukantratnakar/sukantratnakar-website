@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit "From the Field" — Admin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Karla', sans-serif;
+      background: #151E2E;
+      color: #fff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #C4A24E;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 30px;
+    }
+    label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    textarea, input {
+      width: 100%;
+      padding: 15px;
+      font-family: 'Karla', sans-serif;
+      font-size: 15px;
+      background: #1F2B3F;
+      border: 1px solid rgba(196,162,78,0.2);
+      border-radius: 4px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    textarea:focus, input:focus {
+      outline: none;
+      border-color: #C4A24E;
+    }
+    textarea {
+      min-height: 180px;
+      line-height: 1.8;
+      resize: vertical;
+    }
+    .char-count {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      text-align: right;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+    button {
+      padding: 12px 28px;
+      font-family: 'Karla', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-primary {
+      background: #C4A24E;
+      color: #151E2E;
+    }
+    .btn-primary:hover {
+      background: #D4B96A;
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #C4A24E;
+      border: 1px solid rgba(196,162,78,0.4);
+    }
+    .btn-secondary:hover {
+      border-color: #C4A24E;
+    }
+    .preview-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 1px solid rgba(196,162,78,0.15);
+    }
+    .preview-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #C4A24E;
+      margin-bottom: 15px;
+    }
+    .preview-box {
+      background: #1F2B3F;
+      padding: 30px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .preview-observation {
+      font-size: 15px;
+      line-height: 2;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 15px;
+    }
+    .preview-context {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+    }
+    .status {
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-size: 14px;
+      margin-top: 20px;
+      display: none;
+    }
+    .status.success {
+      display: block;
+      background: rgba(76, 175, 80, 0.15);
+      color: #81C784;
+      border: 1px solid rgba(76, 175, 80, 0.3);
+    }
+    .status.error {
+      display: block;
+      background: rgba(244, 67, 54, 0.15);
+      color: #E57373;
+      border: 1px solid rgba(244, 67, 54, 0.3);
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 30px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: #C4A24E;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>From the Field</h1>
+    <p class="subtitle">Edit the observation that appears on the homepage</p>
+    
+    <form id="fieldForm">
+      <label for="observation">Observation</label>
+      <textarea id="observation" name="observation" placeholder="Your observation..."></textarea>
+      <div class="char-count"><span id="charCount">0</span> characters</div>
+      
+      <label for="context">Context Line</label>
+      <input type="text" id="context" name="context" placeholder="e.g., Observation from 15 years of cross-industry consulting">
+      
+      <div class="buttons">
+        <button type="submit" class="btn-primary">Save Changes</button>
+        <button type="button" class="btn-secondary" onclick="loadCurrent()">Reset</button>
+      </div>
+      
+      <div id="status" class="status"></div>
+    </form>
+    
+    <div class="preview-section">
+      <div class="preview-label">Live Preview</div>
+      <div class="preview-box">
+        <p class="preview-observation" id="previewObservation"></p>
+        <p class="preview-context" id="previewContext"></p>
+      </div>
+    </div>
+    
+    <a href="/" class="back-link">← Back to Homepage</a>
+  </div>
+
+  <script>
+    const observationEl = document.getElementById('observation');
+    const contextEl = document.getElementById('context');
+    const charCountEl = document.getElementById('charCount');
+    const previewObsEl = document.getElementById('previewObservation');
+    const previewCtxEl = document.getElementById('previewContext');
+    const statusEl = document.getElementById('status');
+    const form = document.getElementById('fieldForm');
+
+    // Load current content
+    async function loadCurrent() {
+      try {
+        const res = await fetch('/data/field-observation.json');
+        const data = await res.json();
+        observationEl.value = data.observation || '';
+        contextEl.value = data.context || '';
+        updatePreview();
+        updateCharCount();
+      } catch (e) {
+        console.error('Failed to load:', e);
+      }
+    }
+
+    // Update preview
+    function updatePreview() {
+      previewObsEl.textContent = observationEl.value || 'Your observation will appear here...';
+      previewCtxEl.textContent = contextEl.value || 'Context line';
+    }
+
+    // Update character count
+    function updateCharCount() {
+      charCountEl.textContent = observationEl.value.length;
+    }
+
+    // Event listeners
+    observationEl.addEventListener('input', () => {
+      updatePreview();
+      updateCharCount();
+    });
+    contextEl.addEventListener('input', updatePreview);
+
+    // Save (Note: This requires a backend endpoint to actually save)
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const data = {
+        observation: observationEl.value,
+        context: contextEl.value,
+        updatedAt: new Date().toISOString()
+      };
+
+      // For static hosting, we'll show instructions
+      // In production, this would POST to an API endpoint
+      statusEl.className = 'status success';
+      statusEl.innerHTML = `
+        <strong>Preview updated!</strong><br>
+        <small>To save permanently, update <code>/data/field-observation.json</code> with:</small><br>
+        <code style="font-size:11px;word-break:break-all;">${JSON.stringify(data)}</code>
+      `;
+      
+      // Copy to clipboard
+      navigator.clipboard.writeText(JSON.stringify(data, null, 2));
+    });
+
+    // Initial load
+    loadCurrent();
+  </script>
+</body>
+</html>

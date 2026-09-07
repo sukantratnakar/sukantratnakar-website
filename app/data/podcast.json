@@ -1,0 +1,60 @@
+{
+  "series": [
+    {
+      "id": "quantraz-studio",
+      "name": "Quantraz Studio",
+      "description": "Conversations on business, leadership, and the stories that shape us.",
+      "type": "own",
+      "image": "/images/podcast/quantraz-studio.jpg",
+      "spotifyShow": null,
+      "episodes": [
+        {
+          "id": "ep1",
+          "title": "Episode 1",
+          "spotifyId": "0CVIL5QiMsD22L2mw4x98P",
+          "date": "2026-03-01"
+        }
+      ]
+    },
+    {
+      "id": "omnimeta",
+      "name": "OmniMeta Mindfulness",
+      "description": "Power Up, Zone In, and Own Your Day—No Matter What Comes Your Way.",
+      "type": "own",
+      "image": "/images/podcast/omnimeta.jpg",
+      "spotifyShow": "4jC7Y2s4kDvMaM1Vkl6IAH",
+      "episodes": [
+        {
+          "id": "ep1",
+          "title": "Episode 1",
+          "spotifyId": "2FaEnZ1rNaWB0NcPThbffZ",
+          "date": "2026-03-07"
+        }
+      ]
+    },
+    {
+      "id": "song-of-singularity",
+      "name": "The Song of Singularity",
+      "description": "Exploring the intersection of technology, humanity, and the future.",
+      "type": "own",
+      "image": "/images/podcast/song-of-singularity.jpg",
+      "episodes": []
+    },
+    {
+      "id": "re-relationship",
+      "name": "Re-Relationship",
+      "description": "Rethinking how we connect, communicate, and build meaningful bonds.",
+      "type": "own",
+      "image": "/images/podcast/re-relationship.jpg",
+      "episodes": []
+    },
+    {
+      "id": "travel-logs",
+      "name": "Travel Logs",
+      "description": "Stories and reflections from journeys around the world.",
+      "type": "own",
+      "image": "/images/podcast/travel-logs.jpg",
+      "episodes": []
+    }
+  ]
+}

@@ -1,0 +1,472 @@
+/* sukantratnakar.com v3 - Components */
+/* Created: 2026-03-21 */
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.nav--transparent {
+  background: transparent;
+}
+
+.nav--solid {
+  background: var(--navy-deep);
+  box-shadow: 0 1px 0 var(--gold-border);
+}
+
+.nav__container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav__link {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+  color: white;
+}
+
+.nav__cta {
+  border: 1px solid var(--gold-border);
+  padding: 8px 20px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.nav__cta:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+  border-color: var(--gold);
+}
+
+/* Mobile hamburger */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.nav__hamburger span {
+  width: 24px;
+  height: 2px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav__links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--navy-deep);
+    flex-direction: column;
+    padding: 30px;
+    gap: 25px;
+  }
+  
+  .nav__links.active {
+    display: flex;
+  }
+  
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+/* Primary CTA */
+.btn {
+  display: inline-block;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  padding: 16px 48px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* Button on light background */
+.btn--dark {
+  border-color: var(--navy-deep);
+  color: var(--navy-deep);
+}
+
+.btn--dark:hover {
+  background: var(--navy-deep);
+  color: white;
+}
+
+/* Small button */
+.btn--sm {
+  padding: 10px 24px;
+  font-size: 11px;
+}
+
+/* ============================================
+   FORMS
+   ============================================ */
+
+.form {
+  max-width: 400px;
+}
+
+.form__group {
+  margin-bottom: 20px;
+}
+
+.form__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 8px;
+}
+
+.form__input {
+  width: 100%;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--text-body);
+  background: white;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form__input:focus {
+  border-color: var(--gold);
+}
+
+.form__input::placeholder {
+  color: var(--text-light);
+}
+
+.form__submit {
+  width: 100%;
+  padding: 16px;
+  background: var(--navy-deep);
+  color: white;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form__submit:hover {
+  background: var(--gold);
+  color: var(--navy-deep);
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.card {
+  background: var(--navy-slate);
+  border: 1px solid var(--gold-border);
+  padding: 40px;
+}
+
+.card__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.card__text {
+  color: var(--text-on-dark);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* Card on light background */
+.card--light {
+  background: white;
+  border: 1px solid #e5e5e5;
+}
+
+.card--light .card__title {
+  color: var(--text-heading);
+}
+
+.card--light .card__text {
+  color: var(--text-body);
+}
+
+/* Cards grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+/* Simple footer (homepage style) */
+.site-footer {
+  background: var(--navy-deep);
+  padding: 50px 30px 40px;
+  text-align: center;
+  border-top: 1px solid var(--gold-border);
+}
+
+.footer-ecosystem {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 18px;
+}
+
+.footer-ecosystem a {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-ecosystem a:hover {
+  color: rgba(255,255,255,0.65);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-muted-dark);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-muted-dark);
+}
+
+@media (max-width: 600px) {
+  .footer-ecosystem {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* Complex footer (original style - for reference) */
+.footer {
+  background: var(--navy-deep);
+  padding: 60px 0 40px;
+  border-top: 1px solid var(--gold-border);
+}
+
+.footer__container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.footer__brand {
+  max-width: 300px;
+}
+
+.footer__name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.footer__tagline {
+  color: var(--text-muted-dark);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.footer__links {
+  display: flex;
+  gap: 60px;
+}
+
+.footer__column h4 {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.footer__column ul {
+  list-style: none;
+}
+
+.footer__column li {
+  margin-bottom: 10px;
+}
+
+.footer__column a {
+  color: var(--text-muted-dark);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__column a:hover {
+  color: white;
+}
+
+.footer__bottom {
+  max-width: var(--content-max-width);
+  margin: 40px auto 0;
+  padding: 20px 30px 0;
+  border-top: 1px solid var(--gold-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__copyright {
+  color: var(--text-muted-dark);
+  font-size: 13px;
+}
+
+.footer__social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer__social a {
+  color: var(--text-muted-dark);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer__social a:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 768px) {
+  .footer__container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer__links {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer__bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+}

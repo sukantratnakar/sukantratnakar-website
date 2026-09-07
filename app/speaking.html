@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management</title>
+<meta name="description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<link rel="canonical" href="https://sukantratnakar.com/speaking">
+<meta name="theme-color" content="#0c1522">
+<link rel="icon" href="/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sukantratnakar.com/speaking">
+<meta property="og:site_name" content="Sukant Ratnakar">
+<meta property="og:title" content="Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management">
+<meta property="og:description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<meta property="og:image" content="https://sukantratnakar.com/images/portrait.png">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management">
+<meta name="twitter:description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<meta name="twitter:image" content="https://sukantratnakar.com/images/portrait.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+    --navy:#0c1522;
+    --cream:#f5f1e8;
+    --gold:#c9a24b;
+    --gold-2:#e2cc90;
+    --ink:#1a2432;
+    --mute:#7d8798;
+    --serif:'Cormorant Garamond', serif;
+    --sans:'Karla', sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);background:var(--navy);color:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  /* left rail */
+  .rail{
+    position:fixed;left:0;top:0;bottom:0;width:64px;
+    border-right:1px solid rgba(201,162,75,0.18);
+    display:flex;align-items:center;justify-content:center;
+    z-index:10;
+  }
+  .rail span{
+    writing-mode:vertical-rl;transform:rotate(180deg);
+    font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);
+    opacity:.85;
+  }
+  main{margin-left:64px;}
+  @media(max-width:820px){ .rail{display:none;} main{margin-left:0;} }
+
+  .frame{max-width:1120px;margin:0 auto;padding:0 6vw;}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+  /* ============ HERO ============ */
+  .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:90px 0 60px;}
+  .hero::after{
+    content:"";position:absolute;right:-12vw;top:-10vh;width:60vw;height:120vh;
+    background:radial-gradient(ellipse at center, rgba(201,162,75,0.09), transparent 65%);
+    pointer-events:none;
+  }
+  .hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:4vw;align-items:end;position:relative;}
+  .kicker{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:34px;}
+  .hero h1{
+    font-family:var(--serif);font-weight:300;
+    font-size:clamp(44px, 6.2vw, 88px);
+    line-height:1.04;letter-spacing:-.5px;color:#fdfaf3;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-2);}
+  .hero-role{
+    margin-top:36px;font-size:15px;color:var(--mute);
+    display:flex;gap:14px;flex-wrap:wrap;align-items:center;
+  }
+  .hero-role b{font-weight:500;color:var(--cream);}
+  .hero-role .dot{width:4px;height:4px;border-radius:50%;background:var(--gold);}
+  .hero-actions{margin-top:44px;display:flex;gap:18px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:15px 30px;font-size:13px;letter-spacing:1.5px;
+    text-transform:uppercase;text-decoration:none;border-radius:2px;
+    transition:transform .2s ease, opacity .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px);opacity:.9;}
+  .btn-gold{background:var(--gold);color:var(--navy);font-weight:600;}
+  .btn-line{border:1px solid rgba(201,162,75,.5);color:var(--gold-2);}
+  .hero-photo{position:relative;}
+  .hero-photo::before{
+    content:"";position:absolute;inset:auto 0 0 0;height:70%;
+    background:radial-gradient(ellipse at 50% 100%, rgba(201,162,75,0.16), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-photo img{
+    width:100%;max-width:420px;margin-left:auto;position:relative;
+    filter:drop-shadow(0 30px 50px rgba(0,0,0,.55));
+  }
+  @media(max-width:820px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-photo img{max-width:260px;margin:40px 0 0;}
+  }
+
+  /* ============ STATEMENT ============ */
+  .statement{padding:130px 0;background:var(--cream);color:var(--ink);}
+  .statement .frame{max-width:800px;}
+  .s-label{font-size:12px;letter-spacing:4px;text-transform:uppercase;color:#a8813a;margin-bottom:24px;}
+  .statement p{font-size:19px;max-width:620px;}
+  .statement p+p{margin-top:22px;}
+  .statement .lede{
+    font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:400;
+    line-height:1.35;font-style:italic;color:#10161f;max-width:none;margin-bottom:34px;
+  }
+  .fields{
+    margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;
+  }
+  .fields span{
+    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
+    border:1px solid rgba(26,36,50,.25);border-radius:999px;padding:8px 18px;color:#3c4657;
+  }
+
+  /* ============ BOOK ============ */
+  .book{padding:140px 0;position:relative;overflow:hidden;}
+  .book::before{
+    content:"CHANGE";position:absolute;top:30px;left:-1vw;
+    font-family:var(--serif);font-size:22vw;font-weight:300;line-height:1;
+    color:rgba(245,241,232,0.028);letter-spacing:-.5vw;pointer-events:none;user-select:none;
+  }
+  .book-grid{display:grid;grid-template-columns:.95fr 1.25fr;gap:5vw;align-items:center;position:relative;}
+  .book-cover img{
+    width:100%;max-width:400px;
+    filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));
+    transition:transform .4s ease;
+  }
+  .book-cover img:hover{transform:translateY(-8px) rotate(-.5deg);}
+  .launch-tag{
+    display:inline-block;font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--navy);background:var(--gold);padding:7px 16px;border-radius:2px;margin-bottom:28px;font-weight:600;
+  }
+  .book h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4.4vw,58px);line-height:1.05;color:#fdfaf3;}
+  .book .series{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-2);margin:14px 0 30px;}
+  .book .pull{
+    font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);
+    color:var(--gold-2);line-height:1.45;border-left:2px solid var(--gold);padding-left:22px;margin-bottom:26px;
+  }
+  .book p.desc{color:var(--mute);max-width:520px;margin-bottom:38px;font-size:16px;}
+  @media(max-width:820px){
+    .book-grid{grid-template-columns:1fr;}
+    .book-cover img{max-width:260px;}
+  }
+
+  /* ============ SHELF ============ */
+  .shelf{padding:150px 0 160px;background:var(--cream);color:var(--ink);position:relative;overflow:hidden;}
+  .shelf::before{
+    content:"30+";position:absolute;top:-4vw;right:-2vw;
+    font-family:var(--serif);font-weight:300;font-size:26vw;line-height:1;
+    color:rgba(26,36,50,0.035);letter-spacing:-1vw;pointer-events:none;user-select:none;
+  }
+  .shelf-head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:20px;position:relative;}
+  .shelf-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5vw,64px);}
+  .shelf-head a{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#a8813a;text-decoration:none;border-bottom:1px solid rgba(168,129,58,.4);padding-bottom:3px;}
+  .shelf-sub{color:#6b6455;font-size:16px;max-width:560px;margin-bottom:90px;position:relative;}
+  .shelf-group{position:relative;margin-bottom:80px;}
+  .shelf-group:last-child{margin-bottom:0;}
+  .shelf-group-label{
+    display:flex;align-items:center;gap:14px;margin-bottom:44px;
+  }
+  .shelf-group-label span{
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#a8813a;font-weight:600;white-space:nowrap;
+  }
+  .shelf-group-label::after{
+    content:"";flex:1;height:1px;background:rgba(26,36,50,.14);
+  }
+  .shelf-row{
+    display:grid;
+    gap:4vw;align-items:end;position:relative;padding-bottom:44px;
+  }
+  .shelf-row--2{grid-template-columns:repeat(2,1fr);max-width:640px;}
+  .shelf-row--3{grid-template-columns:repeat(3,1fr);}
+  .shelf-row::after{
+    content:"";position:absolute;left:-4vw;right:-4vw;bottom:0;height:2px;
+    background:linear-gradient(90deg, transparent, rgba(168,129,58,.55) 15%, rgba(168,129,58,.55) 85%, transparent);
+  }
+  .b{
+    position:relative;text-align:center;text-decoration:none;color:inherit;
+    display:flex;flex-direction:column;align-items:center;
+  }
+  .b .cover-slot{
+    height:clamp(220px,22vw,320px);width:100%;
+    display:flex;align-items:flex-end;justify-content:center;
+  }
+  .b img{
+    max-height:100%;max-width:100%;width:auto;
+    filter:drop-shadow(0 34px 30px rgba(20,15,5,.32));
+    transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .b:hover img{transform:translateY(-12px);}
+  .b .t{font-size:15px;font-weight:600;margin-top:26px;letter-spacing:.3px;}
+  .b .y{font-size:12px;color:#9a937f;margin-top:3px;}
+  @media(max-width:820px){
+    .shelf::before{font-size:44vw;top:-6vw;}
+    .shelf-row--2, .shelf-row--3{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
+    .b .cover-slot{height:240px;}
+  }
+
+  /* ============ CTA ============ */
+  .cta{padding:150px 0;text-align:left;position:relative;}
+  .cta h2{
+    font-family:var(--serif);font-weight:300;font-size:clamp(34px,4.6vw,60px);
+    line-height:1.15;color:#fdfaf3;max-width:760px;
+  }
+  .cta h2 em{font-style:italic;color:var(--gold-2);}
+  .cta p{color:var(--mute);max-width:520px;margin:28px 0 44px;font-size:16px;}
+
+  /* ============ FOOTER ============ */
+  footer{border-top:1px solid rgba(201,162,75,.18);padding:52px 0;font-size:13px;color:var(--mute);}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap;}
+  .foot-links a{text-decoration:none;letter-spacing:.5px;}
+  .foot-links a:hover{color:var(--gold-2);}
+
+  /* ============ SPEAKING TEASER ============ */
+  .teaser{padding:0 0 110px;position:relative;}
+  .teaser-inner{
+    border-top:1px solid rgba(201,162,75,.22);
+    border-bottom:1px solid rgba(201,162,75,.22);
+    padding:38px 0;
+  }
+  .s-label--dark{color:var(--gold);}
+  .teaser-line{
+    font-family:var(--serif);font-weight:300;font-size:clamp(22px,2.6vw,32px);
+    line-height:1.3;color:#fdfaf3;max-width:760px;
+  }
+  .teaser-link{
+    display:inline-block;margin-top:22px;font-size:13px;letter-spacing:1.5px;
+    text-transform:uppercase;text-decoration:none;color:var(--gold-2);
+    border-bottom:1px solid rgba(201,162,75,.5);padding-bottom:4px;
+    transition:color .2s ease,border-color .2s ease;
+  }
+  .teaser-link:hover{color:var(--gold);border-color:var(--gold);}
+  @media(max-width:820px){ .teaser{padding-bottom:80px;} }
+
+  /* ============ SPEAKING PAGE ============ */
+  .rail a{text-decoration:none;display:block;}
+  .hero--page{min-height:auto;padding:150px 0 100px;}
+  .hero--page .hero-grid{grid-template-columns:1fr;}
+  .hero--page h1{max-width:900px;}
+  .hero-sub{
+    font-family:var(--serif);font-weight:300;font-style:italic;
+    font-size:clamp(20px,2.4vw,30px);line-height:1.35;
+    color:var(--gold-2);margin-top:30px;max-width:720px;
+  }
+  .hero-aud{color:var(--mute);margin-top:20px;max-width:620px;font-size:16px;}
+
+  /* section shells reusing the homepage rhythm */
+  .sec-dark{padding:130px 0;position:relative;overflow:hidden;}
+  .sec-cream{padding:130px 0;background:var(--cream);color:var(--ink);}
+  .sec-cream .frame{max-width:900px;}
+  .sec-dark .frame{max-width:900px;}
+  .sec-cream + .sec-cream{padding-top:0;}
+  .sec-dark h2, .sec-cream h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(32px,4.2vw,54px);line-height:1.08;
+  }
+  .sec-dark h2{color:#fdfaf3;}
+  .sec-cream h2{color:#10161f;}
+  .sec-dark p{color:var(--mute);font-size:16px;}
+  .sec-cream p{color:var(--ink);font-size:18px;}
+  .sec-body{margin-top:30px;max-width:700px;}
+  .sec-body p + p{margin-top:20px;}
+  .s-label--dark{color:var(--gold);}
+
+  /* takeaways */
+  .takeaways{margin-top:44px;max-width:700px;}
+  .takeaways h3{
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:#a8813a;font-weight:600;margin-bottom:22px;
+  }
+  .takeaways ul{list-style:none;}
+  .takeaways li{
+    position:relative;padding-left:26px;font-size:17px;line-height:1.6;
+  }
+  .takeaways li + li{margin-top:16px;}
+  .takeaways li::before{
+    content:"";position:absolute;left:0;top:12px;
+    width:9px;height:1px;background:#a8813a;
+  }
+  .fee-line{
+    margin-top:44px;padding-top:26px;
+    border-top:1px solid rgba(26,36,50,.16);
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(20px,2.2vw,26px);line-height:1.4;color:#10161f;
+  }
+  .fee-reason{margin-top:10px;font-size:16px;color:#6b6455;}
+
+  /* video facade */
+  .video-wrap{margin-top:0;max-width:900px;}
+  .video-facade{
+    position:relative;width:100%;aspect-ratio:16/9;
+    border:1px solid rgba(201,162,75,.28);border-radius:3px;overflow:hidden;
+    background:#0a121d center/cover no-repeat;cursor:pointer;display:block;padding:0;
+  }
+  .video-facade img{width:100%;height:100%;object-fit:cover;}
+  .video-facade::after{
+    content:"";position:absolute;inset:0;background:rgba(12,21,34,.35);
+    transition:background .25s ease;
+  }
+  .video-facade:hover::after{background:rgba(12,21,34,.18);}
+  .video-play{
+    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    width:76px;height:76px;border-radius:50%;
+    background:var(--gold);color:var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;line-height:1;padding-left:5px;z-index:2;
+    box-shadow:0 18px 40px rgba(0,0,0,.45);
+    transition:transform .25s ease;
+  }
+  .video-facade:hover .video-play{transform:translate(-50%,-50%) scale(1.06);}
+  .video-wrap iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:3px;display:block;}
+  .video-caption{margin-top:18px;font-size:14px;color:var(--mute);max-width:640px;}
+
+  /* topics table -> cards */
+  .topics{width:100%;border-collapse:collapse;margin-top:44px;}
+  .topics th{
+    text-align:left;font-size:11px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--gold);font-weight:600;padding:0 20px 16px 0;
+    border-bottom:1px solid rgba(201,162,75,.3);
+  }
+  .topics td{
+    padding:22px 20px 22px 0;vertical-align:top;
+    border-bottom:1px solid rgba(201,162,75,.14);
+  }
+  .topics td.t-name{
+    font-family:var(--serif);font-size:22px;font-weight:500;
+    color:#fdfaf3;width:36%;line-height:1.25;
+  }
+  .topics td.t-blurb{color:var(--mute);font-size:16px;}
+  .tailoring{margin-top:34px;max-width:640px;}
+  @media(max-width:720px){
+    .topics, .topics tbody, .topics tr, .topics td{display:block;width:100%;}
+    .topics thead{position:absolute;left:-9999px;}
+    .topics tr{
+      border:1px solid rgba(201,162,75,.22);border-radius:3px;
+      padding:22px;margin-bottom:16px;
+    }
+    .topics td{border:0;padding:0;}
+    .topics td.t-name{font-size:20px;width:auto;margin-bottom:8px;}
+  }
+
+  /* workshop price blocks */
+  .prices{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+  .price{
+    border:1px solid rgba(26,36,50,.18);border-radius:3px;padding:32px;
+    background:rgba(255,255,255,.42);
+  }
+  .price h3{
+    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:#a8813a;font-weight:600;margin-bottom:16px;
+  }
+  .price .amount{
+    font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#10161f;
+  }
+  .price .amount span{font-size:16px;font-family:var(--sans);color:#6b6455;margin-left:6px;}
+  .price .cap{
+    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
+    color:#6b6455;margin-top:14px;
+  }
+  .price .note{font-size:15.5px;color:#4a5262;margin-top:18px;line-height:1.6;}
+  .workshop-actions{margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;}
+  .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;}
+  .btn-ink:hover{background:rgba(26,36,50,.06);}
+  @media(max-width:720px){ .prices{grid-template-columns:1fr;} }
+
+  /* logistics */
+  .host-list{list-style:none;margin-top:36px;max-width:660px;}
+  .host-list li{position:relative;padding-left:26px;font-size:17px;line-height:1.6;}
+  .host-list li + li{margin-top:14px;}
+  .host-list li::before{
+    content:"";position:absolute;left:0;top:12px;width:9px;height:1px;background:#a8813a;
+  }
+  .delivery{
+    margin-top:34px;font-family:var(--serif);font-style:italic;
+    font-size:clamp(19px,2.1vw,24px);color:#10161f;
+  }
+
+  /* booking */
+  .cal-wrap{
+    margin-top:44px;border:1px solid rgba(201,162,75,.2);border-radius:3px;
+    overflow:hidden;min-height:520px;background:#0a121d;
+  }
+  .cal-fallback{padding:44px;text-align:center;color:var(--mute);}
+  .booking-alt{
+    margin-top:28px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+    font-size:15px;color:var(--mute);
+  }
+  .booking-alt a{color:var(--gold-2);}
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:.62fr 1.38fr;gap:4vw;align-items:start;margin-top:44px;}
+  .about-grid img{width:100%;max-width:280px;border-radius:2px;filter:drop-shadow(0 24px 40px rgba(0,0,0,.25));}
+  .about-bio{font-size:18px;line-height:1.7;}
+  .about-bio em{font-style:italic;}
+  .about-actions{margin-top:34px;display:flex;gap:18px;flex-wrap:wrap;align-items:center;}
+  @media(max-width:820px){
+    .about-grid{grid-template-columns:1fr;}
+    .about-grid img{max-width:200px;}
+  }
+
+  /* proof */
+  .proof-lines{margin-top:26px;max-width:680px;}
+  .proof-quote{
+    margin-top:26px;font-family:var(--serif);font-style:italic;
+    font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:#10161f;
+    border-left:2px solid #a8813a;padding-left:22px;
+  }
+  .proof-attr{margin-top:12px;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#6b6455;}
+
+  /* faq */
+  .faq{margin-top:44px;max-width:760px;}
+  .faq-item{padding:26px 0;border-bottom:1px solid rgba(201,162,75,.16);}
+  .faq-item:first-child{border-top:1px solid rgba(201,162,75,.16);}
+  .faq-q{
+    font-family:var(--serif);font-size:23px;font-weight:500;color:#fdfaf3;line-height:1.3;
+  }
+  .faq-a{margin-top:10px;color:var(--mute);font-size:16px;max-width:640px;}
+</style>
+</head>
+<body>
+
+<aside class="rail"><a href="/"><span>Sukant Ratnakar</span></a></aside>
+
+<main>
+
+<section class="hero hero--page">
+  <div class="frame">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Speaking</div>
+        <h1>Talks and Workshops</h1>
+        <p class="hero-sub">A 45-minute talk on why change stalls — and what to fix before it starts</p>
+        <p class="hero-aud">For a leadership team, a board, a credit union or an all-staff session. 45 minutes with questions.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#book-a-time">Book a talk</a>
+          <a class="btn btn-line" href="#workshop">See the workshop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="sec-cream reveal">
+  <div class="frame">
+    <div class="s-label">The 45-minute talk</div>
+    <h2>The signature talk: Change Anesthesiology</h2>
+    <div class="sec-body">
+      <p>For twenty years, roughly seven in ten change initiatives have fallen short — an estimated $2.3 trillion a year. The frameworks have multiplied; the number has not moved.</p>
+      <p>My argument is that we have been treating the wrong condition. Resistance is not the obstacle — it is the signal. It tells you something true about the conditions upstream: drained energy, narrow perspective, minds already full before your project arrived. The real work happens before the initiative begins.</p>
+      <p>Hence the name — in 1846, anaesthesia did not make surgery better, it made surgery survivable.</p>
+    </div>
+    <div class="takeaways">
+      <h3>What your people take away</h3>
+      <ul>
+        <li>A different first question: not who is resisting? but what conditions made resistance sensible?</li>
+        <li>A four-stage model they can apply to a change already underway, or one still on the drawing board.</li>
+        <li>A practical read on why past initiatives stalled, before the next one launches.</li>
+      </ul>
+    </div>
+    <p class="fee-line">There is no speaking fee.</p>
+    <p class="fee-reason">These talks are how the work finds its audience.</p>
+  </div>
+</section>
+
+<section class="sec-cream reveal" id="proof">
+  <div class="frame">
+    <div class="s-label">Where I have spoken</div>
+    <div class="proof-lines">
+      <p>Alice Turner Library, Saskatoon — public launch audience, 13 August 2026. Organised by Systovation and the Elite Club of Canada.</p>
+      
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark reveal" id="topics">
+  <div class="frame">
+    <h2>Seven talks to choose from</h2>
+    <table class="topics">
+      <thead>
+        <tr><th>Talk</th><th>What it covers</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="t-name">Change Anesthesiology</td><td class="t-blurb">Why resistance is never the problem, and what to fix before a change begins.</td></tr>
+        <tr><td class="t-name">White Space Thinking</td><td class="t-blurb">Finding opportunity in the gaps others have not noticed.</td></tr>
+        <tr><td class="t-name">Perspective Thinking</td><td class="t-blurb">How leaders widen the view before they make the call.</td></tr>
+        <tr><td class="t-name">Tinergy</td><td class="t-blurb">The small units of energy that decide whether a team moves or stalls.</td></tr>
+        <tr><td class="t-name">Kinetic Energy of Ideas</td><td class="t-blurb">What turns an idea from talk into movement.</td></tr>
+        <tr><td class="t-name">Building Your Multitasking Strength</td><td class="t-blurb">Carrying several demands without losing quality.</td></tr>
+        <tr><td class="t-name">Evolution Management</td><td class="t-blurb">Running an organisation as a system that evolves, not one that ends.</td></tr>
+      </tbody>
+    </table>
+    <p class="tailoring">Happy to shape the session around a change your organisation is going through right now.</p>
+  </div>
+</section>
+
+<section class="sec-cream reveal" id="workshop">
+  <div class="frame">
+    <h2>The workshop</h2>
+    <div class="sec-body">
+      <p>The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only. All three are fixed scope, so the price on this page is the price. Larger groups, a series run across several teams, or ongoing advisory work are quoted separately.</p>
+    </div>
+    <div class="prices">
+      <div class="price">
+        <h3>Three hours, in-house</h3>
+        <div class="amount">$2,500 CAD</div>
+        <div class="cap">Up to 12 participants</div>
+        <p class="note">Same fee whether you bring 6 people or 12, so you are free to invite the room that needs to be there.</p>
+      </div>
+      <div class="price">
+        <h3>Three hours, individual seats</h3>
+        <div class="amount">$250 CAD<span>per person</span></div>
+        <div class="cap">Minimum 6, capped at 12</div>
+        <p class="note">For leaders who want the session without booking one for their whole organisation. Scheduled dates appear on the calendar.</p>
+      </div>
+      <div class="price">
+        <h3>Full day, in-house</h3>
+        <div class="amount">$4,500 CAD</div>
+        <div class="cap">Up to 12 participants</div>
+        <p class="note">Three hours moves fast and covers one change. The full day gives each of the four stages its own working session, room for more than one change, and time to leave with a written plan your team has agreed on.</p>
+      </div>
+    </div>
+    <div class="workshop-actions">
+      <a class="btn btn-ink" href="https://cal.com/sukantratnakar/workshop-enquiry" target="_blank" rel="noopener" data-utm>Enquire about a workshop</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec-cream reveal">
+  <div class="frame">
+    <h2>What a host needs to provide</h2>
+    <ul class="host-list">
+      <li>A room. If you have a screen or projector I'll use it; otherwise I bring my own.</li>
+      <li>45 minutes for the talk, three hours or a full day for the workshop — plus a few minutes either side.</li>
+      <li>For a full day, lunch and refreshments for your people. I do not cater.</li>
+      <li>Nothing else. No pre-reading, no prep from your team.</li>
+    </ul>
+    <p class="delivery">The 45-minute talk runs in person in Saskatoon and within 100 km, or online anywhere. The workshop is always in person. Beyond 100 km, anywhere in North America, travel and accommodation are on the host.</p>
+  </div>
+</section>
+
+<section class="sec-dark reveal" id="book-a-time">
+  <div class="frame">
+    <h2>Book a time</h2>
+    <div class="sec-body">
+      <p>Pick a slot that suits your team. If nothing fits, write to me and we will find one. <a href="mailto:sukant@quantraz.com">sukant@quantraz.com</a></p>
+    </div>
+    <div class="cal-wrap" id="cal-talk"></div>
+    <div class="booking-alt"><span>Workshop enquiry:</span> <a href="https://cal.com/sukantratnakar/workshop-enquiry" target="_blank" rel="noopener" data-utm>cal.com/sukantratnakar/workshop-enquiry</a></div>
+  </div>
+</section>
+
+<section class="sec-cream reveal" id="about">
+  <div class="frame">
+    <div class="s-label">About Sukant</div>
+    <h2>Sukant Ratnakar</h2>
+    <div class="about-grid">
+      <img src="/images/portrait.png" alt="Sukant Ratnakar">
+      <div>
+        <p class="about-bio">I am an industrial engineer by training, hold an MSc in Strategic Planning from Edinburgh Business School, Heriot-Watt University, UK, and am a Certified Management Consultant. I founded Quantraz Inc. in Saskatoon and have written more than thirty books, including <em>Change Anesthesiology</em>, <em>White Space Thinking</em>, <em>Iknetix</em> and <em>ZERO</em>.</p>
+        <div class="about-actions">
+          <a class="btn btn-ink" href="/downloads/Sukant_Ratnakar_Speaker_One_Pager.pdf" download>Download the one-page speaker note (PDF)</a>
+          <a class="btn btn-ink" href="https://systovation.com" target="_blank" rel="noopener">See the full catalogue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec-dark reveal" id="questions">
+  <div class="frame">
+    <h2>Questions</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Do you charge for the 45-minute talk?</div>
+        <p class="faq-a">No. There is no fee, and no obligation to book anything after it.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will this turn into a sales pitch?</div>
+        <p class="faq-a">No. The talk is the talk. If you want to go further there is a workshop, and it is priced on this page.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">We have more than 12 people, or we want more than one session.</div>
+        <p class="faq-a">Those are quoted separately. A larger group, a series across teams, or ongoing advisory work are all possible — they are just not fixed scope, so the number depends on what you need. Tell me the shape of it.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you deliver online?</div>
+        <p class="faq-a">The 45-minute talk, yes — anywhere. The workshop is in person only; it does not work as a screen session.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How far will you travel?</div>
+        <p class="faq-a">Saskatoon and within 100 km at no charge. Anywhere else in North America, travel and accommodation are on the host.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can we record it?</div>
+        <p class="faq-a">Yes, for internal use.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can we buy books for attendees?</div>
+        <p class="faq-a">Yes — ask and I will quote a bulk rate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="frame foot">
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/speaking">Speaking</a>
+      <a href="https://changeanesthesiology.com" target="_blank" rel="noopener">Change Anesthesiology</a>
+      <a href="https://systovation.com" target="_blank" rel="noopener">Systovation</a>
+      <a href="https://quantraz.com" target="_blank" rel="noopener">Quantraz</a>
+      <a href="https://www.linkedin.com/in/sukant/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:sukant@quantraz.com">Email</a>
+    </div>
+    <div>© 2026 Sukant Ratnakar</div>
+  </div>
+</footer>
+
+</main>
+
+<script>
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ---- UTM passthrough: carry inbound campaign tags into the booking ---- */
+  function utmParams(){
+    const src = new URLSearchParams(location.search);
+    const out = {};
+    for (const [k,v] of src) if (/^utm_/i.test(k) && v) out[k.toLowerCase()] = v;
+    try {
+      if (Object.keys(out).length) sessionStorage.setItem('srUtm', JSON.stringify(out));
+      else {
+        const kept = sessionStorage.getItem('srUtm');
+        if (kept) Object.assign(out, JSON.parse(kept));
+      }
+    } catch(e){}
+    return out;
+  }
+  const SR_UTM = utmParams();
+  document.querySelectorAll('a[data-utm]').forEach(a=>{
+    try{
+      const u = new URL(a.href);
+      Object.entries(SR_UTM).forEach(([k,v])=>u.searchParams.set(k,v));
+      a.href = u.toString();
+    }catch(e){}
+  });
+
+  /* ---- click-to-load YouTube facade ---- */
+  document.querySelectorAll('[data-yt]').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      const id = el.getAttribute('data-yt');
+      const f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      f.title = el.getAttribute('data-yt-title') || 'Video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      el.replaceWith(f);
+    }, { once: true });
+  });
+</script>
+<script>
+(function (C, A, L) {
+  var p = function (a, ar) { a.q.push(ar); };
+  var d = C.document;
+  C.Cal = C.Cal || function () {
+    var cal = C.Cal, ar = arguments;
+    if (cal.loaded === undefined) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; }
+    if (ar[0] === L) {
+      var api = function () { p(api, arguments); };
+      var namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); }
+      else p(cal, ar);
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+</script>
+<script>
+  (function(){
+    function boot(){
+      if (typeof Cal !== 'function') return setTimeout(boot, 200);
+      Cal('init', { origin: 'https://cal.com' });
+      Cal('inline', {
+        elementOrSelector: '#cal-talk',
+        calLink: "sukantratnakar/speaking-talk",
+        layout: 'month_view',
+        config: Object.assign({ layout: 'month_view', theme: 'dark' }, SR_UTM)
+      });
+      Cal('ui', {
+        theme: 'dark',
+        cssVarsPerTheme: { dark: { 'cal-brand': '#c9a24b' } },
+        hideEventTypeDetails: false,
+        layout: 'month_view'
+      });
+    }
+    boot();
+  })();
+</script>
+</body>
+</html>

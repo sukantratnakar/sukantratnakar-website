@@ -1,0 +1,294 @@
+/* sukantratnakar.com v3 - Global Styles */
+/* Created: 2026-03-21 */
+
+/* ============================================
+   NUCLEAR: Prevent ALL horizontal scrolling
+   ============================================ */
+html {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+}
+
+body {
+  overflow-x: hidden !important;
+  width: 100% !important;
+  max-width: 100vw !important;
+  position: relative !important;
+}
+
+/* Universal box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box !important;
+  max-width: 100vw;
+}
+
+/* Long words should break rather than overflow */
+h1, h2, h3, p, span, a, li {
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Karla:wght@300;400;500;600&display=swap');
+
+/* CSS Variables */
+:root {
+  /* Backgrounds */
+  --navy-deep: #151E2E;
+  --navy-mid: #1F2B3F;
+  --navy-slate: #2A3750;
+  --warm-white: #FDFBF6;
+  --warm-gray: #F5F3EE;
+  
+  /* Gold Accent */
+  --gold: #C4A24E;
+  --gold-soft: #D4B96A;
+  --gold-tint: rgba(196, 162, 78, 0.15);
+  --gold-border: rgba(196, 162, 78, 0.12);
+  
+  /* Text Colors */
+  --text-heading: #1A1A1A;
+  --text-body: #3D3D3D;
+  --text-light: #6E6E6E;
+  --text-on-dark: rgba(255, 255, 255, 0.82);
+  --text-muted-dark: rgba(255, 255, 255, 0.45);
+  
+  /* Highlights */
+  --highlight-bg: #FFF8ED;
+  
+  /* Fonts */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Karla', sans-serif;
+  
+  /* Spacing */
+  --section-padding: 90px;
+  --section-padding-mobile: 60px;
+  --content-max-width: 1100px;
+  --text-max-width: 540px;
+}
+
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.95;
+  color: var(--text-body);
+  background: var(--warm-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 52px;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-size: 38px;
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 22px;
+  font-weight: 400;
+}
+
+p {
+  max-width: var(--text-max-width);
+}
+
+/* Section Label - Gold uppercase */
+.section-label {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: block;
+  max-width: 100%;
+}
+
+/* Pull Quote */
+.pull-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold-soft);
+  border-left: 2px solid var(--gold);
+  padding-left: 20px;
+  max-width: var(--text-max-width);
+}
+
+/* Gold Divider */
+.gold-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 30px auto;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--gold);
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container */
+.container {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+/* Section Base */
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section--dark {
+  background: var(--navy-deep);
+  color: var(--text-on-dark);
+}
+
+.section--dark h1,
+.section--dark h2,
+.section--dark h3 {
+  color: white;
+}
+
+.section--dark p {
+  color: var(--text-on-dark);
+}
+
+.section--mid {
+  background: var(--navy-mid);
+  color: var(--text-on-dark);
+}
+
+.section--light {
+  background: var(--warm-white);
+  color: var(--text-body);
+}
+
+.section--gray {
+  background: var(--warm-gray);
+  color: var(--text-body);
+}
+
+/* Photo styling */
+.photo {
+  border-radius: 4px;
+  border: 1px solid var(--gold-border);
+}
+
+/* Credentials / Meta text */
+.meta-text {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-light);
+  letter-spacing: 0.5px;
+}
+
+.meta-text--dark {
+  color: var(--text-muted-dark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: var(--section-padding-mobile);
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  .container {
+    padding: 0 20px !important;
+    max-width: calc(100vw - 40px) !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .container--narrow {
+    padding: 0 20px !important;
+    max-width: calc(100vw - 40px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Force all sections to constrain width */
+  section {
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+  
+  /* All direct children of containers must fit */
+  .container > *,
+  .container--narrow > * {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  
+  .section-label {
+    letter-spacing: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  
+  .section--dark,
+  .section--mid {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

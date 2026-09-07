@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0f"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#bg)"/>
+  <text x="50" y="60" fill="#6366f1" font-family="Georgia, serif" font-size="72" opacity="0.3">"</text>
+  <g>
+    <text x="300" y="110.4" text-anchor="middle" fill="#f5f5f7" font-family="Georgia, serif" font-size="32" font-style="italic">"Evolution is the floating bridge on</text>
+    <text x="300" y="155.2" text-anchor="middle" fill="#f5f5f7" font-family="Georgia, serif" font-size="32" font-style="italic">"turbulent waters. Any time an</text>
+    <text x="300" y="200" text-anchor="middle" fill="#f5f5f7" font-family="Georgia, serif" font-size="32" font-style="italic">"organization misses a change step,</text>
+    <text x="300" y="244.79999999999998" text-anchor="middle" fill="#f5f5f7" font-family="Georgia, serif" font-size="32" font-style="italic">"it will face extinction."</text>
+  </g>
+  <line x1="250" y1="320" x2="350" y2="320" stroke="#6366f1" stroke-width="2"/>
+  <text x="300" y="355" text-anchor="middle" fill="#a1a1aa" font-family="Inter, sans-serif" font-size="14">Sukant Ratnakar</text>
+  <text x="300" y="380" text-anchor="middle" fill="#6366f1" font-family="Inter, sans-serif" font-size="11">sukantratnakar.com</text>
+</svg>

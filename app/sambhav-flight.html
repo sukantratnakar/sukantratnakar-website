@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✈️ Sambhav's Flight Tracker</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .header h1 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .header .subtitle {
+      color: #8892b0;
+      font-size: 14px;
+    }
+    .flights {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .flight-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      border-left: 4px solid #3b82f6;
+    }
+    .flight-card.active {
+      border-left-color: #22c55e;
+      background: rgba(34, 197, 94, 0.1);
+    }
+    .flight-card.past {
+      opacity: 0.5;
+      border-left-color: #666;
+    }
+    .flight-route {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .airport {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .arrow {
+      font-size: 24px;
+      color: #8892b0;
+    }
+    .flight-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .info-item {
+      background: rgba(255,255,255,0.05);
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .info-label {
+      font-size: 11px;
+      color: #8892b0;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .info-value {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .countdown-section {
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+    .countdown-label {
+      font-size: 14px;
+      color: #8892b0;
+      margin-bottom: 8px;
+    }
+    .countdown {
+      font-size: 48px;
+      font-weight: 700;
+      font-family: 'SF Mono', 'Monaco', monospace;
+    }
+    .countdown.warning {
+      color: #f59e0b;
+    }
+    .countdown.urgent {
+      color: #ef4444;
+      animation: pulse 1s infinite;
+    }
+    .countdown.done {
+      color: #22c55e;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .status-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 12px;
+    }
+    .status-badge.boarding {
+      background: #22c55e;
+      color: white;
+    }
+    .status-badge.waiting {
+      background: #3b82f6;
+      color: white;
+    }
+    .current-time {
+      text-align: center;
+      color: #8892b0;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>✈️ Sambhav's Flight</h1>
+    <div class="subtitle">March 20, 2026 • SFO → PHX → SAT</div>
+  </div>
+
+  <div class="flights">
+    <!-- Flight 1: SFO to PHX -->
+    <div class="flight-card" id="flight1">
+      <div class="flight-route">
+        <span class="airport">SFO</span>
+        <span class="arrow">→</span>
+        <span class="airport">PHX</span>
+      </div>
+      <div class="flight-info">
+        <div class="info-item">
+          <div class="info-label">Flight</div>
+          <div class="info-value">AA2610</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Gate</div>
+          <div class="info-value">B25</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Seat</div>
+          <div class="info-value">17C</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Boards</div>
+          <div class="info-value">3:55 PM</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Departs</div>
+          <div class="info-value">4:35 PM</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Terminal</div>
+          <div class="info-value">1</div>
+        </div>
+      </div>
+      <div class="countdown-section">
+        <div class="countdown-label">Time until boarding</div>
+        <div class="countdown" id="countdown1">--:--:--</div>
+        <div class="status-badge waiting" id="status1">Waiting</div>
+      </div>
+    </div>
+
+    <!-- Flight 2: PHX to SAT -->
+    <div class="flight-card" id="flight2">
+      <div class="flight-route">
+        <span class="airport">PHX</span>
+        <span class="arrow">→</span>
+        <span class="airport">SAT</span>
+      </div>
+      <div class="flight-info">
+        <div class="info-item">
+          <div class="info-label">Flight</div>
+          <div class="info-value">AA1829</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Gate</div>
+          <div class="info-value">A7</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Seat</div>
+          <div class="info-value">10D</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Boards</div>
+          <div class="info-value">6:55 PM</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Departs</div>
+          <div class="info-value">7:30 PM</div>
+        </div>
+        <div class="info-item">
+          <div class="info-label">Terminal</div>
+          <div class="info-value">4</div>
+        </div>
+      </div>
+      <div class="countdown-section">
+        <div class="countdown-label">Time until boarding</div>
+        <div class="countdown" id="countdown2">--:--:--</div>
+        <div class="status-badge waiting" id="status2">Waiting</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="current-time" id="currentTime"></div>
+
+  <script>
+    // Flight times in their local timezones
+    // SFO = PDT (UTC-7), PHX = MST (UTC-7, no DST)
+    const flights = [
+      {
+        id: 'flight1',
+        countdownId: 'countdown1',
+        statusId: 'status1',
+        // March 20, 2026 3:55 PM PDT (boarding)
+        boardingTime: new Date('2026-03-20T15:55:00-07:00'),
+        departureTime: new Date('2026-03-20T16:35:00-07:00'),
+        route: 'SFO → PHX'
+      },
+      {
+        id: 'flight2',
+        countdownId: 'countdown2',
+        statusId: 'status2',
+        // March 20, 2026 6:55 PM MST (boarding) - PHX is UTC-7
+        boardingTime: new Date('2026-03-20T18:55:00-07:00'),
+        departureTime: new Date('2026-03-20T19:30:00-07:00'),
+        route: 'PHX → SAT'
+      }
+    ];
+
+    function formatTime(ms) {
+      if (ms <= 0) return '00:00:00';
+      const hours = Math.floor(ms / 3600000);
+      const minutes = Math.floor((ms % 3600000) / 60000);
+      const seconds = Math.floor((ms % 60000) / 1000);
+      return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function updateCountdowns() {
+      const now = new Date();
+      
+      flights.forEach(flight => {
+        const countdownEl = document.getElementById(flight.countdownId);
+        const statusEl = document.getElementById(flight.statusId);
+        const cardEl = document.getElementById(flight.id);
+        
+        const timeToBoarding = flight.boardingTime - now;
+        const timeToDeparture = flight.departureTime - now;
+        
+        if (timeToDeparture <= 0) {
+          // Flight departed
+          countdownEl.textContent = 'Departed ✈️';
+          countdownEl.className = 'countdown done';
+          statusEl.textContent = 'In Flight';
+          statusEl.className = 'status-badge boarding';
+          cardEl.className = 'flight-card past';
+        } else if (timeToBoarding <= 0) {
+          // Boarding now
+          countdownEl.textContent = formatTime(timeToDeparture);
+          countdownEl.className = 'countdown urgent';
+          statusEl.textContent = 'BOARDING NOW';
+          statusEl.className = 'status-badge boarding';
+          cardEl.className = 'flight-card active';
+        } else if (timeToBoarding <= 900000) {
+          // Less than 15 min to boarding
+          countdownEl.textContent = formatTime(timeToBoarding);
+          countdownEl.className = 'countdown urgent';
+          statusEl.textContent = 'Board Soon!';
+          statusEl.className = 'status-badge boarding';
+          cardEl.className = 'flight-card active';
+        } else if (timeToBoarding <= 1800000) {
+          // Less than 30 min
+          countdownEl.textContent = formatTime(timeToBoarding);
+          countdownEl.className = 'countdown warning';
+          statusEl.textContent = 'Get Ready';
+          statusEl.className = 'status-badge waiting';
+        } else {
+          countdownEl.textContent = formatTime(timeToBoarding);
+          countdownEl.className = 'countdown';
+          statusEl.textContent = 'Waiting';
+          statusEl.className = 'status-badge waiting';
+        }
+      });
+
+      // Update current time display
+      document.getElementById('currentTime').textContent = 
+        'Current time: ' + now.toLocaleTimeString('en-US', { 
+          hour: '2-digit', 
+          minute: '2-digit', 
+          second: '2-digit',
+          timeZoneName: 'short'
+        });
+    }
+
+    // Update every second
+    updateCountdowns();
+    setInterval(updateCountdowns, 1000);
+  </script>
+</body>
+</html>

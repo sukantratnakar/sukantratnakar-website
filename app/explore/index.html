@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Sukant Ratnakar's work - diary entries, quotes, podcast, papers, and books.">
+  <title>Explore | Sukant Ratnakar</title>
+  
+  <link rel="stylesheet" href="/styles/global.css">
+  <link rel="stylesheet" href="/styles/components.css">
+  <style>
+    /* Explore Page Specific Styles */
+    .explore-header {
+      background: var(--navy-deep);
+      padding: 140px 40px 80px;
+      text-align: center;
+    }
+    
+    .explore-header .gold-line {
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 30px;
+    }
+    
+    .explore-header h1 {
+      font-family: var(--font-display);
+      font-size: 42px;
+      font-weight: 300;
+      color: white;
+      margin-bottom: 15px;
+    }
+    
+    .explore-header .subtitle {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--text-muted-dark);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    /* Cards Section */
+    .explore-cards {
+      background: var(--navy-deep);
+      padding: 0 40px 80px;
+    }
+    
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .explore-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--gold-border);
+      border-radius: 0;
+      padding: 35px 30px;
+      text-decoration: none;
+      transition: border-color 0.3s;
+      display: block;
+    }
+    
+    .explore-card:hover {
+      border-color: rgba(196, 162, 78, 0.35);
+    }
+    
+    .explore-card h2 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: white;
+      margin-bottom: 10px;
+    }
+    
+    .explore-card p {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-on-dark);
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+    
+    .explore-card .count {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.5px;
+    }
+    
+    .explore-card.coming-soon {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    /* Footer */
+    .site-footer {
+      background: #0D1320;
+      padding: 30px 40px;
+      text-align: center;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.15);
+    }
+    
+    /* Mobile */
+    @media (max-width: 900px) {
+      .explore-header {
+        padding: 120px 25px 60px;
+      }
+      
+      .explore-header h1 {
+        font-size: 32px;
+      }
+      
+      .explore-cards {
+        padding: 0 25px 60px;
+      }
+      
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav nav--transparent" id="mainNav">
+  <div class="nav__container">
+    <a href="/" class="nav__logo">Sukant Ratnakar</a>
+    
+    <ul class="nav__links" id="navLinks">
+      <li><a href="/#about" class="nav__link">About</a></li>
+      <li><a href="/explore/" class="nav__link nav__link--active">Explore</a></li>
+      <li><a href="https://cal.com/sukantratnakar/lets-talk" class="nav__cta" target="_blank">Book a Conversation</a></li>
+    </ul>
+    
+    <div class="nav__hamburger" id="navHamburger" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="explore-header">
+  <div class="gold-line"></div>
+  <h1>Explore</h1>
+  <p class="subtitle">Ideas, frameworks, and observations from 25 years of strategic work.</p>
+</header>
+
+<!-- Cards -->
+<section class="explore-cards">
+  <div class="cards-grid">
+    <a href="/explore/diary/" class="explore-card">
+      <h2>Diary</h2>
+      <p>Observations from the field — management patterns found in unexpected places.</p>
+      <span class="count" id="diary-count">10 entries</span>
+    </a>
+    
+    <a href="/explore/quotes/" class="explore-card">
+      <h2>Quotes</h2>
+      <p>243 reflections on leadership, strategy, and the architecture of good decisions.</p>
+      <span class="count" id="quotes-count">243 quotes</span>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-ecosystem">
+    <a href="https://systovation.com" target="_blank">Publishing</a>
+    <a href="https://quantrazgg.com" target="_blank">Corporate Games</a>
+    <a href="https://quantraz.com" target="_blank">Store</a>
+  </div>
+  <div class="footer-links">
+    <a href="https://linkedin.com/in/sukant" target="_blank">LinkedIn</a>
+    <a href="mailto:sukant@quantraz.com">Email</a>
+  </div>
+  <p class="footer-copy">© 2026 Sukant Ratnakar · Quantraz Inc · Saskatoon, Canada</p>
+</footer>
+
+<script src="/js/main.js"></script>
+<script>
+  // Update counts dynamically from data files
+  async function updateCounts() {
+    try {
+      const diaryRes = await fetch('/data/diary.json');
+      const diary = await diaryRes.json();
+      document.getElementById('diary-count').textContent = diary.length + ' entries';
+    } catch (e) {}
+    
+    try {
+      const quotesRes = await fetch('/data/quotes.json');
+      const quotes = await quotesRes.json();
+      document.getElementById('quotes-count').textContent = quotes.length + ' quotes';
+      // Also update the description count
+      const quotesCard = document.querySelector('.explore-card:nth-child(2) p');
+      if (quotesCard) {
+        quotesCard.textContent = quotes.length + ' reflections on leadership, strategy, and the architecture of good decisions.';
+      }
+    } catch (e) {}
+  }
+  
+  updateCounts();
+</script>
+</body>
+</html>

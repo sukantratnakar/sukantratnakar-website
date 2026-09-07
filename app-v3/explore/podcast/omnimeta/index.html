@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OmniMeta Mindfulness - Power Up, Zone In, and Own Your Day. A podcast by Sukant Ratnakar.">
+  <meta property="og:title" content="OmniMeta Mindfulness | Sukant Ratnakar">
+  <meta property="og:description" content="Power Up, Zone In, and Own Your Day—No Matter What Comes Your Way.">
+  <title>OmniMeta Mindfulness | Sukant Ratnakar</title>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a24;
+      --text-primary: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --border: rgba(255,255,255,0.1);
+      --spotify-green: #1DB954;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+    
+    .page-header {
+      margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+    .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    
+    .series-hero {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+    }
+    .series-cover {
+      width: 200px;
+      height: 200px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: var(--bg-secondary);
+      flex-shrink: 0;
+    }
+    .series-info h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .series-info .description {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .series-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    .spotify-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--spotify-green);
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .spotify-badge:hover {
+      opacity: 0.9;
+    }
+    .spotify-badge svg {
+      width: 18px;
+      height: 18px;
+    }
+    
+    .episodes-section {
+      margin-top: 48px;
+    }
+    .episodes-section h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+    }
+    
+    .episode-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .episode-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+    .episode-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    .episode-date {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    .episode-player {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .episode-player iframe {
+      display: block;
+    }
+    
+    .footer {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; }
+    .footer-links a:hover { color: var(--text-primary); }
+    
+    @media (max-width: 768px) {
+      .nav { padding: 16px 20px; }
+      .container { padding: 100px 16px 60px; }
+      .series-hero { flex-direction: column; align-items: center; text-align: center; }
+      .series-cover { width: 160px; height: 160px; }
+      .series-info h1 { font-size: 2rem; }
+      .series-meta { justify-content: center; flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">SR</a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/explore/" class="active">Explore</a>
+      <a href="https://book.sukantratnakar.com" target="_blank">Calendar</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/explore/">Explore</a> / <a href="/explore/podcast/">Podcast</a> / OmniMeta
+      </div>
+      
+      <div class="series-hero">
+        <img class="series-cover" src="/images/podcast/omnimeta.jpg?v=2" alt="OmniMeta Mindfulness" onerror="this.style.background='linear-gradient(135deg, #f59e0b 0%, #ea580c 100%)'; this.src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';">
+        <div class="series-info">
+          <h1>OmniMeta Mindfulness</h1>
+          <p class="description">Power Up, Zone In, and Own Your Day—No Matter What Comes Your Way.</p>
+          <div class="series-meta">
+            <span id="episodeCount">1 episode</span>
+            <a href="https://open.spotify.com/show/4jC7Y2s4kDvMaM1Vkl6IAH" target="_blank" class="spotify-badge">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Listen on Spotify
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <section class="episodes-section">
+      <h2>Episodes</h2>
+      
+      <div class="episode-card">
+        <div class="episode-header">
+          <h3 class="episode-title">Episode 1</h3>
+          <span class="episode-date">March 2026</span>
+        </div>
+        <div class="episode-player">
+          <iframe 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/episode/2FaEnZ1rNaWB0NcPThbffZ?utm_source=generator&theme=0" 
+            width="100%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/explore/podcast/">← All Podcast Series</a>
+      <a href="/explore/diary/">Diary</a>
+      <a href="/explore/papers/">Papers</a>
+    </div>
+    <p>© 2026 Sukant Ratnakar</p>
+  </footer>
+</body>
+</html>

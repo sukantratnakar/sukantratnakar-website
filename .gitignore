@@ -1,0 +1,24 @@
+# Secrets — NEVER commit. Holds GROQ_API_KEY, TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
+.env
+.env.*
+
+# Dependencies — restore with `npm install`
+node_modules/
+
+# OS / editor noise
+.DS_Store
+.wtest
+*.swp
+
+# Logs and temp
+*.log
+*.tmp
+dist/
+build/
+
+# Timestamped backup copies made by hand before edits
+*.bak
+*.bak-*
+
+# Working scratch: screenshots and one-off outputs, not part of the site
+Claude outputs/

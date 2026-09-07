@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#1a1a2e">
+  <title>CRM (Offline Pipeline)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { 
+      height: 100%; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+    }
+    body { padding: 20px; padding-top: env(safe-area-inset-top, 20px); }
+    
+    h1 { font-size: 28px; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    
+    /* PIN Screen */
+    .pin-screen {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .pin-screen.hidden { display: none; }
+    .pin-box {
+      background: rgba(255,255,255,0.08);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      width: 280px;
+    }
+    .pin-box h2 { margin-bottom: 24px; font-size: 24px; }
+    #pin-input {
+      width: 100%;
+      padding: 16px;
+      font-size: 32px;
+      text-align: center;
+      letter-spacing: 12px;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    #pin-input:focus { border-color: #4f46e5; outline: none; }
+    .pin-btn {
+      width: 100%;
+      padding: 14px;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .pin-btn:hover { background: #4338ca; }
+    .pin-error { color: #ef4444; margin-top: 12px; font-size: 14px; }
+    
+    /* Filters */
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .filter-btn {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn.active { background: #4f46e5; }
+    .filter-btn:hover { background: rgba(255,255,255,0.2); }
+    
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    .stat-value { font-size: 28px; font-weight: 700; }
+    .stat-label { font-size: 12px; opacity: 0.7; margin-top: 4px; }
+    .stat-card.hot .stat-value { color: #ef4444; }
+    .stat-card.warm .stat-value { color: #f59e0b; }
+    .stat-card.won .stat-value { color: #22c55e; }
+    
+    /* Contact Cards */
+    .contacts-list { display: flex; flex-direction: column; gap: 12px; padding-bottom: 100px; }
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-left: 4px solid transparent;
+    }
+    .contact-card:hover { background: rgba(255,255,255,0.12); }
+    .contact-card.hot { border-left-color: #ef4444; }
+    .contact-card.warm { border-left-color: #f59e0b; }
+    .contact-card.cold { border-left-color: #3b82f6; }
+    
+    .contact-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+    .contact-name { font-size: 18px; font-weight: 600; }
+    .contact-company { font-size: 14px; opacity: 0.7; }
+    
+    .contact-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.1);
+    }
+    .tag.stage { background: rgba(139,92,246,0.3); }
+    .tag.industry { background: rgba(59,130,246,0.3); }
+    .tag.followup { background: rgba(239,68,68,0.3); }
+    .tag.offered { background: rgba(16,185,129,0.3); }
+    
+    .contact-action { font-size: 13px; color: #a5b4fc; margin-top: 10px; }
+    
+    .contact-actions { display: flex; gap: 8px; margin-top: 12px; }
+    .edit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      background: rgba(79,70,229,0.3);
+      border: none;
+      border-radius: 8px;
+      color: #a5b4fc;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .edit-btn:hover { background: rgba(79,70,229,0.5); color: #fff; }
+    .linkedin-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 12px;
+      background: rgba(59,130,246,0.3);
+      border: none;
+      border-radius: 8px;
+      color: #93c5fd;
+      font-size: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .linkedin-btn:hover { background: rgba(59,130,246,0.5); color: #fff; }
+    
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      opacity: 0.6;
+    }
+    
+    .loading {
+      text-align: center;
+      padding: 60px;
+    }
+    .loading::after {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    
+    /* Back button */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      color: #a1a1aa;
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+    .back-btn:hover { background: rgba(255,255,255,0.2); color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- PIN Lock Screen -->
+  <div id="pin-screen" class="pin-screen">
+    <div class="pin-box">
+      <h2>🔐 Enter PIN</h2>
+      <input type="password" id="pin-input" maxlength="4" pattern="[0-9]*" inputmode="numeric" placeholder="••••" autofocus>
+      <button id="pin-submit" class="pin-btn">Unlock</button>
+      <p id="pin-error" class="pin-error"></p>
+    </div>
+  </div>
+
+  <a href="/" class="back-btn">← Back to Home</a>
+  
+  <h1>📇 CRM (Offline)</h1>
+  
+  <div class="stats" id="stats">
+    <div class="stat-card">
+      <div class="stat-value" id="stat-total">-</div>
+      <div class="stat-label">Total</div>
+    </div>
+    <div class="stat-card hot">
+      <div class="stat-value" id="stat-hot">-</div>
+      <div class="stat-label">🔥 Hot</div>
+    </div>
+    <div class="stat-card warm">
+      <div class="stat-value" id="stat-warm">-</div>
+      <div class="stat-label">🟡 Warm</div>
+    </div>
+    <div class="stat-card won">
+      <div class="stat-value" id="stat-won">-</div>
+      <div class="stat-label">✅ Won</div>
+    </div>
+  </div>
+  
+  <div class="filters" id="stage-filters">
+    <button class="filter-btn active" data-stage="all">All</button>
+    <button class="filter-btn" data-stage="🆕 New">🆕 New</button>
+    <button class="filter-btn" data-stage="👋 Reached Out">👋 Reached</button>
+    <button class="filter-btn" data-stage="💬 Engaged">💬 Engaged</button>
+    <button class="filter-btn" data-stage="📞 Call Scheduled">📞 Call</button>
+    <button class="filter-btn" data-stage="📄 Proposal Sent">📄 Proposal</button>
+    <button class="filter-btn" data-stage="🤝 Negotiating">🤝 Negotiating</button>
+    <button class="filter-btn" data-stage="✅ Won">✅ Won</button>
+  </div>
+  
+  <div class="contacts-list" id="contacts-list">
+    <div class="loading"></div>
+  </div>
+
+  <script>
+    const PIN_CODE = '8887';
+    const PIN_COOKIE_DAYS = 30;
+    const API_BASE = '/api/crm';
+    
+    let contacts = [];
+    let currentFilter = 'all';
+    
+    // ============ PIN PROTECTION ============
+    function checkPinAccess() {
+      const saved = localStorage.getItem('crm_pin_verified');
+      if (saved) {
+        const expiry = parseInt(saved);
+        if (Date.now() < expiry) {
+          document.getElementById('pin-screen').classList.add('hidden');
+          return true;
+        }
+      }
+      return false;
+    }
+    
+    function verifyPin() {
+      const input = document.getElementById('pin-input').value;
+      const error = document.getElementById('pin-error');
+      
+      if (input === PIN_CODE) {
+        const expiry = Date.now() + (PIN_COOKIE_DAYS * 24 * 60 * 60 * 1000);
+        localStorage.setItem('crm_pin_verified', expiry.toString());
+        document.getElementById('pin-screen').classList.add('hidden');
+        error.textContent = '';
+        loadContacts();
+      } else {
+        error.textContent = 'Incorrect PIN';
+        document.getElementById('pin-input').value = '';
+        document.getElementById('pin-input').focus();
+      }
+    }
+    
+    document.getElementById('pin-submit').addEventListener('click', verifyPin);
+    document.getElementById('pin-input').addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') verifyPin();
+    });
+    
+    // ============ DATA LOADING ============
+    async function loadContacts() {
+      try {
+        const res = await fetch(API_BASE + '/contacts');
+        const data = await res.json();
+        contacts = data.contacts || [];
+        updateStats();
+        renderContacts();
+      } catch (err) {
+        console.error('Failed to load contacts:', err);
+        document.getElementById('contacts-list').innerHTML = 
+          '<div class="empty-state">⚠️ Failed to load contacts</div>';
+      }
+    }
+    
+    function updateStats() {
+      document.getElementById('stat-total').textContent = contacts.length;
+      document.getElementById('stat-hot').textContent = contacts.filter(c => c.temperature === '🔥 Hot').length;
+      document.getElementById('stat-warm').textContent = contacts.filter(c => c.temperature === '🟡 Warm').length;
+      document.getElementById('stat-won').textContent = contacts.filter(c => c.stage === '✅ Won').length;
+    }
+    
+    function renderContacts() {
+      const list = document.getElementById('contacts-list');
+      
+      let filtered = contacts;
+      if (currentFilter !== 'all') {
+        filtered = contacts.filter(c => c.stage === currentFilter);
+      }
+      
+      if (filtered.length === 0) {
+        list.innerHTML = '<div class="empty-state">No contacts found</div>';
+        return;
+      }
+      
+      // Sort by follow-up date (closest first)
+      filtered.sort((a, b) => {
+        if (!a.nextFollowup) return 1;
+        if (!b.nextFollowup) return -1;
+        return new Date(a.nextFollowup) - new Date(b.nextFollowup);
+      });
+      
+      list.innerHTML = filtered.map(c => {
+        const tempClass = c.temperature === '🔥 Hot' ? 'hot' : c.temperature === '🟡 Warm' ? 'warm' : 'cold';
+        const followupTag = c.nextFollowup ? `<span class="tag followup">📅 ${formatDate(c.nextFollowup)}</span>` : '';
+        const offeredTags = (c.offered || []).map(o => `<span class="tag offered">${o}</span>`).join('');
+        const notionUrl = `https://www.notion.so/${c.id.replace(/-/g, '')}`;
+        
+        return `
+          <div class="contact-card ${tempClass}">
+            <div class="contact-header">
+              <div>
+                <div class="contact-name">${escapeHtml(c.name)}</div>
+                <div class="contact-company">${escapeHtml(c.role || '')}${c.role && c.company ? ' • ' : ''}${escapeHtml(c.company || '')}</div>
+              </div>
+            </div>
+            <div class="contact-meta">
+              <span class="tag stage">${c.stage || 'New'}</span>
+              ${c.industry ? `<span class="tag industry">${c.industry}</span>` : ''}
+              ${followupTag}
+              ${offeredTags}
+            </div>
+            ${c.nextAction ? `<div class="contact-action">→ ${escapeHtml(c.nextAction)}</div>` : ''}
+            <div class="contact-actions">
+              <a href="${notionUrl}" target="_blank" class="edit-btn" onclick="event.stopPropagation()">
+                ✏️ Edit in Notion
+              </a>
+              ${c.linkedin ? `<a href="${c.linkedin}" target="_blank" class="linkedin-btn" onclick="event.stopPropagation()">
+                🔗 LinkedIn
+              </a>` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+    
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      const today = new Date();
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      
+      if (d.toDateString() === today.toDateString()) return 'Today';
+      if (d.toDateString() === tomorrow.toDateString()) return 'Tomorrow';
+      
+      const diff = Math.floor((d - today) / (1000 * 60 * 60 * 24));
+      if (diff < 0) return Math.abs(diff) + 'd overdue';
+      if (diff <= 7) return 'In ' + diff + 'd';
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    }
+    
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+    
+    function openLinkedIn(url) {
+      if (url) window.open(url, '_blank');
+    }
+    
+    // ============ FILTERS ============
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.stage;
+        renderContacts();
+      });
+    });
+    
+    // ============ INIT ============
+    if (checkPinAccess()) {
+      loadContacts();
+    }
+  </script>
+</body>
+</html>

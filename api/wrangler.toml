@@ -1,0 +1,10 @@
+name = "sukantratnakar-api"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[[kv_namespaces]]
+binding = "CONTENT"
+id = "e54b979cd157458b880c6734bff12f2f"
+
+[vars]
+ADMIN_PASSWORD_HASH = "c2a450fbb1559ae393e79372173cb1e3cf1149d99bcd2072fc120594f49db935"

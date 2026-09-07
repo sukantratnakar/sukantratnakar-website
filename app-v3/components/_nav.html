@@ -1,0 +1,39 @@
+<!-- Navigation Component -->
+<nav class="nav nav--transparent" id="mainNav">
+  <div class="nav__container">
+    <a href="/" class="nav__logo">Sukant Ratnakar</a>
+    
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about" class="nav__link">About</a></li>
+      <li><a href="#services" class="nav__link">Services</a></li>
+      <li><a href="/explore/" class="nav__link">Explore</a></li>
+      <li><a href="https://book.sukantratnakar.com/book" class="nav__cta" target="_blank">Book a Conversation</a></li>
+    </ul>
+    
+    <div class="nav__hamburger" id="navHamburger" onclick="toggleNav()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll', function() {
+  const nav = document.getElementById('mainNav');
+  if (window.scrollY > 50) {
+    nav.classList.remove('nav--transparent');
+    nav.classList.add('nav--solid');
+  } else {
+    nav.classList.add('nav--transparent');
+    nav.classList.remove('nav--solid');
+  }
+});
+
+// Mobile menu toggle
+function toggleNav() {
+  const links = document.getElementById('navLinks');
+  links.classList.toggle('active');
+}
+</script>

@@ -1,0 +1,334 @@
+/* sukantratnakar.com v3 - Homepage Styles */
+/* Created: 2026-03-21 */
+
+/* ============================================
+   HERO
+   ============================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 120px 40px 80px;
+  background: var(--navy-deep);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 40%, rgba(196, 162, 78, 0.03) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.hero__content {
+  position: relative;
+  max-width: 700px;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: 46px;
+  font-weight: 300;
+  color: white;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+
+.hero__subtitle {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-muted-dark);
+  line-height: 1.9;
+  max-width: 500px;
+  margin: 0 auto 50px;
+}
+
+.hero__creds {
+  margin-top: 60px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================================
+   ABOUT SECTION
+   ============================================ */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about__photo {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.about__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--gold-border);
+}
+
+.about__content h2 {
+  margin-bottom: 25px;
+}
+
+.about__content p {
+  margin-bottom: 18px;
+}
+
+.about__content .pull-quote {
+  margin: 30px 0;
+}
+
+/* ============================================
+   SERVICES GRID
+   ============================================ */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 45px;
+}
+
+.service-card {
+  border: 1px solid var(--gold-border);
+  padding: 40px 30px;
+  transition: border-color 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: rgba(196, 162, 78, 0.35);
+}
+
+.service-card__number {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 300;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 18px;
+}
+
+.service-card__title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.service-card__duration {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.service-card__desc {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--text-on-dark);
+  line-height: 1.85;
+  max-width: none;
+}
+
+/* ============================================
+   BROCHURE SECTION
+   ============================================ */
+
+.brochure-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.brochure-preview {
+  background: var(--navy-deep);
+  border: 1px solid var(--gold-border);
+  padding: 50px 35px;
+  text-align: center;
+}
+
+.brochure-preview h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 300;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.brochure-preview p {
+  font-size: 13px;
+  color: var(--text-muted-dark);
+  line-height: 1.7;
+  max-width: 280px;
+  margin: 0 auto 20px;
+}
+
+.brochure-preview__author {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brochure-form h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--text-heading);
+  margin-bottom: 12px;
+}
+
+.brochure-form > p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  max-width: none;
+}
+
+.form__note {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+
+.final-cta {
+  position: relative;
+}
+
+.final-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(196, 162, 78, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-frame {
+  border: 1px solid var(--gold-border);
+  padding: 60px 50px;
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.cta-frame h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.cta-frame > p {
+  font-size: 14px;
+  color: var(--text-muted-dark);
+  line-height: 1.8;
+  margin-bottom: 35px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.secondary-cta {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 20px;
+}
+
+.secondary-cta a {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.3s ease;
+}
+
+.secondary-cta a:hover {
+  color: var(--gold);
+}
+
+/* ============================================
+   CONTAINER VARIANT
+   ============================================ */
+
+.container--narrow {
+  max-width: 680px;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 900px) {
+  .hero {
+    padding: 100px 25px 60px;
+  }
+  
+  .hero__title {
+    font-size: 32px;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about__photo {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .brochure-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cta-frame {
+    padding: 40px 25px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 28px;
+  }
+}

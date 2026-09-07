@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Podcast series by Sukant Ratnakar - Quantraz Studio, The Song of Singularity, Re-Relationship, and Travel Logs.">
+  <meta property="og:title" content="Podcast | Sukant Ratnakar">
+  <meta property="og:description" content="Conversations on business, technology, relationships, and travel.">
+  <title>Podcast | Sukant Ratnakar</title>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #12121a;
+      --bg-card: #1a1a24;
+      --text-primary: #f5f5f7;
+      --text-secondary: #a1a1aa;
+      --accent: #6366f1;
+      --accent-hover: #818cf8;
+      --border: rgba(255,255,255,0.1);
+      --spotify-green: #1DB954;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7; overflow-x: hidden; max-width: 100vw;
+      
+    }
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-primary); }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 120px 24px 80px;
+    }
+    
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .breadcrumb {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+    }
+    .breadcrumb a { color: var(--text-secondary); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .page-header .subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .series-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .series-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
+    }
+    .series-card.coming-soon {
+      opacity: 0.6;
+      cursor: default;
+    }
+    .series-card.coming-soon:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .series-image {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      background: var(--bg-secondary);
+    }
+    
+    .series-content {
+      padding: 20px;
+    }
+    .series-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .series-description {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+    .series-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .episode-count {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .coming-soon-badge {
+      background: rgba(99, 102, 241, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+    }
+    
+    .spotify-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--spotify-green);
+    }
+    
+    .footer {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; }
+    .footer-links a { color: var(--text-secondary); text-decoration: none; }
+    .footer-links a:hover { color: var(--text-primary); }
+    
+    @media (max-width: 768px) {
+      .nav { padding: 16px 20px; }
+      .container { padding: 100px 16px 60px; }
+      .page-header h1 { font-size: 2.2rem; }
+      .series-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="/" class="nav-logo">SR</a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/explore/" class="active">Explore</a>
+      <a href="https://cal.com/sukantratnakar/lets-talk" target="_blank">Book a Conversation</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header class="page-header">
+      <div class="breadcrumb">
+        <a href="/">Home</a> / <a href="/explore/">Explore</a> / Podcast
+      </div>
+      <h1>Podcast</h1>
+      <p class="subtitle">Four series exploring business, technology, relationships, and the world</p>
+    </header>
+    
+    <div class="series-grid" id="seriesGrid">
+      <!-- Populated by JS -->
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="/explore/">← Back to Explore</a>
+      <a href="/explore/diary/">Diary</a>
+      <a href="/explore/papers/">Papers</a>
+      <a href="/explore/books/">Books</a>
+    </div>
+    <p>© 2026 Sukant Ratnakar</p>
+  </footer>
+
+  <script>
+    const PLACEHOLDER = 'data:image/svg+xml,' + encodeURIComponent(`
+      <svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+        <rect fill="#1a1a24" width="400" height="400"/>
+        <text x="200" y="200" text-anchor="middle" fill="#6366f1" font-family="system-ui" font-size="64">🎙️</text>
+      </svg>
+    `);
+    
+    async function loadSeries() {
+      try {
+        const res = await fetch('/data/podcast.json');
+        const data = await res.json();
+        const grid = document.getElementById('seriesGrid');
+        
+        data.series.forEach(series => {
+          const hasEpisodes = series.episodes && series.episodes.length > 0;
+          const card = document.createElement(hasEpisodes ? 'a' : 'div');
+          card.className = 'series-card' + (hasEpisodes ? '' : ' coming-soon');
+          if (hasEpisodes) {
+            card.href = `/explore/podcast/${series.id}/`;
+          }
+          
+          card.innerHTML = `
+            <img class="series-image" src="${series.image || PLACEHOLDER}" alt="${series.name}" onerror="this.src='${PLACEHOLDER}'">
+            <div class="series-content">
+              <h2 class="series-name">${series.name}</h2>
+              <p class="series-description">${series.description}</p>
+              <div class="series-meta">
+                ${hasEpisodes ? `
+                  <span class="episode-count">
+                    <svg class="spotify-icon" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                    ${series.episodes.length} episode${series.episodes.length > 1 ? 's' : ''}
+                  </span>
+                ` : `
+                  <span class="coming-soon-badge">Coming Soon</span>
+                `}
+              </div>
+            </div>
+          `;
+          
+          grid.appendChild(card);
+        });
+      } catch (err) {
+        console.error('Failed to load podcast series:', err);
+      }
+    }
+    
+    loadSeries();
+  </script>
+</body>
+</html>
