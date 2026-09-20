@@ -4,7 +4,7 @@
  * - Auto-sync with instant updates
  */
 
-const CACHE_NAME = 'sukant-3372db4a';
+const CACHE_NAME = 'sukant-0c911192';
 
 const PRECACHE_ASSETS = [
   '/',
@@ -62,30 +62,19 @@ self.addEventListener('fetch', event => {
     return;
   }
   
-  // Network-first for HTML.
-  //
-  // This was stale-while-revalidate (`return cached || fetchPromise`), which
-  // served the PREVIOUS build to every returning visitor on first load and only
-  // refreshed for the visit after. Found 8 Sep 2026: a stale page was still
-  // showing an old light-themed design whose .about-grid lacked
-  // `align-items:start`, so the grid stretched the portrait to the height of the
-  // bio column beside it -- a 45% horizontal squeeze. The image was fine; the
-  // whole cached page was old. Pricing and booking-link changes were invisible
-  // to returning visitors for the same reason.
-  //
-  // Now: always fetch the live page, fall back to cache only when offline.
-  // Do not revert to cache-first here.
+  // Stale-while-revalidate for HTML
   if (event.request.headers.get('accept')?.includes('text/html')) {
     event.respondWith(
-      fetch(event.request)
-        .then(response => {
+      caches.match(event.request).then(cached => {
+        const fetchPromise = fetch(event.request).then(response => {
           if (response.ok) {
             const clone = response.clone();
             caches.open(CACHE_NAME).then(c => c.put(event.request, clone));
           }
           return response;
-        })
-        .catch(() => caches.match(event.request))
+        });
+        return cached || fetchPromise;
+      })
     );
     return;
   }

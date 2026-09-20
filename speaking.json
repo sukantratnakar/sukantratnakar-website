@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-09-20",
+  "_version": "2026-09-07",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -62,22 +62,30 @@
     }
   ],
   "workshop": {
-    "intro": "The talk opens a door. The workshop walks through it. Hands on your own situation, working the four stages against a change your organisation is actually facing — not a case study.",
-    "formats": [
+    "intro": "The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only. All three are fixed scope, so the price on this page is the price. Larger groups, a series run across several teams, or ongoing advisory work are quoted separately.",
+    "tiers": [
       {
-        "name": "Three-hour workshop",
-        "length": "3 hours"
+        "label": "Three hours, in-house",
+        "fee": "$2,500 CAD",
+        "unit": "",
+        "cap": "Up to 12 participants",
+        "note": "Same fee whether you bring 6 people or 12, so you are free to invite the room that needs to be there."
       },
       {
-        "name": "Full-day workshop",
-        "length": "1 day",
-        "note": "Host provides lunch and refreshments."
+        "label": "Three hours, individual seats",
+        "fee": "$250 CAD",
+        "unit": "per person",
+        "cap": "Minimum 6, capped at 12",
+        "note": "For leaders who want the session without booking one for their whole organisation. Scheduled dates appear on the calendar."
+      },
+      {
+        "label": "Full day, in-house",
+        "fee": "$4,500 CAD",
+        "unit": "",
+        "cap": "Up to 12 participants",
+        "note": "Three hours moves fast and covers one change. The full day gives each of the four stages its own working session, room for more than one change, and time to leave with a written plan your team has agreed on."
       }
-    ],
-    "audience": "For a leadership team or a management group. Workshops run in person.",
-    "fee_line": "Fees depend on the format, the group size and where it runs. Book a short call and I will quote it.",
-    "cta_label": "Book a workshop call",
-    "_note": "NO PRICES HERE, DELIBERATELY (20 Sep 2026). Removed before the first paid workshop: publishing a figure with no track record fixes an anchor before the market has said what it pays, and a price raised later reads worse than a price never published. Scope then price is the normal consulting sequence. fee_line stays so nobody assumes the workshop is free like the talk. Revisit after three paid workshops. The per-person open-seat tier was dropped earlier: it needs scheduled dates and a cohort, and neither exists."
+    ]
   },
   "logistics": {
     "host_provides": [
@@ -109,7 +117,7 @@
   },
   "meta": {
     "page_title": "Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management",
-    "page_description": "A free 45-minute talk for leadership teams, boards and credit unions, plus half-day and full-day workshops. Based in Saskatoon, available online anywhere. Book directly."
+    "page_description": "A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
   },
   "page": {
     "_comment": "Page chrome: headings, button labels, FAQ, proof and the PDF. Edit here too — the templates contain no text of their own.",
@@ -126,7 +134,9 @@
       "topics_col_talk": "Talk",
       "topics_col_covers": "What it covers",
       "workshop_heading": "The workshop",
-      "workshop_cta": "Book a workshop call",
+      "workshop_inhouse_label": "In-house, at your organisation",
+      "workshop_openseat_label": "Open workshop, individual seats",
+      "workshop_cta": "Enquire about a workshop",
       "logistics_heading": "What a host needs to provide",
       "booking_heading": "Book a time",
       "booking_intro": "Pick a slot that suits your team. If nothing fits, write to me and we will find one.",

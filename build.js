@@ -116,25 +116,21 @@ const topicsRows = d.topics.map(t =>
 const takeaways = d.talk.takeaways.map(t => `        <li>${esc(t)}</li>`).join('\n');
 const hostItems = d.logistics.host_provides.map(t => `      <li>${esc(t)}</li>`).join('\n');
 
-/* Workshop formats. NO PRICES, deliberately (20 Sep 2026) - see workshop._note
-   in speaking.json. Render name, length and an optional note only. Do not
-   reintroduce a fee/amount field here. */
-const wsFormats = d.workshop.formats.map(f => `      <div class="format">
-        <h3>${esc(f.name)}</h3>
-        <div class="len">${esc(f.length)}</div>${f.note ? `
-        <p class="note">${esc(f.note)}</p>` : ''}
+/* workshop caps, composed from the numbers in the JSON */
+const wsPrices = d.workshop.tiers.map(t => `      <div class="price">
+        <h3>${esc(t.label)}</h3>
+        <div class="amount">${esc(t.fee)}${t.unit ? `<span>${esc(t.unit)}</span>` : ''}</div>
+        <div class="cap">${esc(t.cap)}</div>
+        <p class="note">${esc(t.note)}</p>
       </div>`).join('\n');
 
 /* booking + workshop CTAs — graceful when a Cal URL is cleared */
 const talkLink = calLinkFrom(d.booking.cal_talk_url);
 const workshopUrl = d.booking.cal_workshop_url;
 
-/* One primary button to the enquiry call; the email sits under it as plain text,
-   NOT a second button - two competing buttons weaken both. */
-const wsCtaLabel = d.workshop.cta_label || sec.workshop_cta;
 const workshopCta = workshopUrl
-  ? `<a class="btn btn-ink" href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm>${esc(wsCtaLabel)}</a>`
-  : `<a class="btn btn-ink" href="mailto:${attr(d.booking.email)}?subject=${encodeURIComponent(wsCtaLabel)}">${esc(wsCtaLabel)}</a>`;
+  ? `<a class="btn btn-ink" href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm>${esc(sec.workshop_cta)}</a>`
+  : `<a class="btn btn-ink" href="mailto:${attr(d.booking.email)}?subject=${encodeURIComponent(sec.workshop_cta)}">${esc(sec.workshop_cta)}</a>`;
 
 let bookingEmbed, calScript;
 if (talkLink) {
@@ -232,11 +228,7 @@ const speakingOut = fill(speakingTpl, {
   WORKSHOP_LABEL: esc(sec.workshop_heading),
   WORKSHOP_HEADING: esc(sec.workshop_heading),
   WORKSHOP_INTRO: esc(d.workshop.intro),
-  WS_FORMATS: wsFormats,
-  WORKSHOP_AUDIENCE: esc(d.workshop.audience),
-  WORKSHOP_FEE_LINE: esc(d.workshop.fee_line),
-  WORKSHOP_EMAIL: attr(d.booking.email),
-  WORKSHOP_EMAIL_TEXT: esc(d.booking.email),
+  WS_PRICES: wsPrices,
   WORKSHOP_CTA: workshopCta,
   LOGISTICS_LABEL: esc(sec.logistics_heading),
   LOGISTICS_HEADING: esc(sec.logistics_heading),
@@ -279,4 +271,4 @@ console.log('built  app/index.html');
 console.log('built  app/speaking.html   (/speaking)');
 console.log('copied app/speaking.json   (/speaking.json)');
 console.log(`       video.show=${d.video.show}  proof.show=${p.proof.show}  topics=${d.topics.length}`);
-console.log(`       workshop formats: ${d.workshop.formats.map(f => f.name).join(' / ')}  (no prices)`);
+console.log(`       workshop tiers: ${d.workshop.tiers.map(t => t.fee).join(' / ')}`);

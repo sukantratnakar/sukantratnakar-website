@@ -134,31 +134,29 @@
     .topics td.t-name{font-size:20px;width:auto;margin-bottom:8px;}
   }
 
-  /* workshop format blocks - NO prices, deliberately (20 Sep 2026) */
-  .formats{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;}
-  .format{
+  /* workshop price blocks */
+  .prices{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
+  .price{
     border:1px solid rgba(26,36,50,.18);border-radius:3px;padding:32px;
     background:rgba(255,255,255,.42);
   }
-  .format h3{
-    font-family:var(--serif);font-weight:400;font-size:26px;line-height:1.2;color:#10161f;
+  .price h3{
+    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
+    color:#a8813a;font-weight:600;margin-bottom:16px;
   }
-  .format .len{
-    font-size:12.5px;letter-spacing:2px;text-transform:uppercase;
-    color:#a8813a;font-weight:600;margin-top:12px;
+  .price .amount{
+    font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#10161f;
   }
-  .format .note{font-size:15.5px;color:#4a5262;margin-top:18px;line-height:1.6;}
-  .ws-audience{margin-top:30px;font-size:17px;color:#4a5262;line-height:1.7;max-width:640px;}
-  .ws-fee{
-    margin-top:18px;font-size:17px;line-height:1.7;color:#10161f;max-width:640px;
-    border-left:2px solid #a8813a;padding-left:20px;
+  .price .amount span{font-size:16px;font-family:var(--sans);color:#6b6455;margin-left:6px;}
+  .price .cap{
+    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
+    color:#6b6455;margin-top:14px;
   }
-  .workshop-actions{margin-top:36px;}
-  .workshop-alt{margin-top:16px;font-size:15.5px;color:#6b6455;}
-  .workshop-alt a{color:#4a5262;border-bottom:1px solid rgba(107,100,85,.4);}
+  .price .note{font-size:15.5px;color:#4a5262;margin-top:18px;line-height:1.6;}
+  .workshop-actions{margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;}
   .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;}
   .btn-ink:hover{background:rgba(26,36,50,.06);}
-  @media(max-width:720px){ .formats{grid-template-columns:1fr;} }
+  @media(max-width:720px){ .prices{grid-template-columns:1fr;} }
 
   /* logistics */
   .host-list{list-style:none;margin-top:36px;max-width:660px;}
@@ -280,15 +278,12 @@
     <div class="sec-body">
       <p>{{WORKSHOP_INTRO}}</p>
     </div>
-    <div class="formats">
-{{WS_FORMATS}}
+    <div class="prices">
+{{WS_PRICES}}
     </div>
-    <p class="ws-audience">{{WORKSHOP_AUDIENCE}}</p>
-    <p class="ws-fee">{{WORKSHOP_FEE_LINE}}</p>
     <div class="workshop-actions">
       {{WORKSHOP_CTA}}
     </div>
-    <p class="workshop-alt">Or write to <a href="mailto:{{WORKSHOP_EMAIL}}">{{WORKSHOP_EMAIL_TEXT}}</a></p>
   </div>
 </section>
 
