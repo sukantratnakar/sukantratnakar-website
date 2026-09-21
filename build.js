@@ -229,7 +229,7 @@ const speakingOut = fill(speakingTpl, {
   WORKSHOP_LABEL: esc(sec.workshop_heading),
   WORKSHOP_HEADING: esc(sec.workshop_heading),
   WORKSHOP_INTRO: esc(d.workshop.intro),
-  WORKSHOP_ASK: esc(d.workshop.ask_line),
+  WORKSHOP_ASK: d.workshop.ask_line ? `<p class="ws-ask">${esc(d.workshop.ask_line)}</p>` : '',
   WORKSHOP_CTA: workshopCta,
   LOGISTICS_LABEL: esc(sec.logistics_heading),
   LOGISTICS_HEADING: esc(sec.logistics_heading),

@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-09-20b",
+  "_version": "2026-09-21a",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -62,8 +62,8 @@
     }
   ],
   "workshop": {
-    "intro": "The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only.",
-    "ask_line": "Systovation Evolution Ecosystem — the state where change runs as permanent infrastructure, not a project: the organisation’s pace of adaptation matched to its environment, so resistance never forms.",
+    "intro": "The state where change runs as permanent infrastructure, not a project: the organisation’s pace of adaptation matched to its environment, so resistance never forms.",
+    "ask_line": "",
     "cta_label": "Book a call",
     "_note": "NO PRICES HERE, DELIBERATELY (20 Sep 2026). The three priced tiers were removed on request. The section is now the intro, the ask_line, and one button that opens the workshop-enquiry calendar in a Cal.com popup. Do not reintroduce a fee, tier or amount field."
   },
@@ -105,7 +105,7 @@
     "nav_label": "Speaking",
     "hero": {
       "cta_primary": "Book a talk",
-      "cta_secondary": "See the workshop"
+      "cta_secondary": "See the Ecosystem"
     },
     "sections": {
       "talk_heading": "The 45-minute talk",
@@ -113,7 +113,7 @@
       "topics_heading": "Seven talks to choose from",
       "topics_col_talk": "Talk",
       "topics_col_covers": "What it covers",
-      "workshop_heading": "The workshop",
+      "workshop_heading": "Systovation Evolution Ecosystem",
       "workshop_inhouse_label": "In-house, at your organisation",
       "workshop_openseat_label": "Open workshop, individual seats",
       "workshop_cta": "Book a call",
