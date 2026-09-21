@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-09-21a",
+  "_version": "2026-09-21b",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -171,5 +171,8 @@
         "a": "Yes — ask and I will quote a bulk rate."
       }
     ]
+  },
+  "_notes": {
+    "logistics": "Section removed from the page 21 Sep 2026 on request. The data is kept here in case it is wanted back; the template no longer renders it."
   }
 }
