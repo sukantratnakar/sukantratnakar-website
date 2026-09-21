@@ -134,29 +134,16 @@
     .topics td.t-name{font-size:20px;width:auto;margin-bottom:8px;}
   }
 
-  /* workshop price blocks */
-  .prices{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
-  .price{
-    border:1px solid rgba(26,36,50,.18);border-radius:3px;padding:32px;
-    background:rgba(255,255,255,.42);
+  /* workshop: no prices (20 Sep 2026). One line, one button. */
+  .ws-ask{
+    margin-top:40px;font-family:var(--serif);font-weight:400;
+    font-size:clamp(22px,2.4vw,30px);line-height:1.35;color:#10161f;
+    max-width:720px;border-left:2px solid #a8813a;padding-left:24px;
   }
-  .price h3{
-    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
-    color:#a8813a;font-weight:600;margin-bottom:16px;
-  }
-  .price .amount{
-    font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#10161f;
-  }
-  .price .amount span{font-size:16px;font-family:var(--sans);color:#6b6455;margin-left:6px;}
-  .price .cap{
-    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
-    color:#6b6455;margin-top:14px;
-  }
-  .price .note{font-size:15.5px;color:#4a5262;margin-top:18px;line-height:1.6;}
-  .workshop-actions{margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;}
-  .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;}
+  .workshop-actions{margin-top:32px;display:flex;gap:18px;flex-wrap:wrap;}
+  .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;cursor:pointer;}
   .btn-ink:hover{background:rgba(26,36,50,.06);}
-  @media(max-width:720px){ .prices{grid-template-columns:1fr;} }
+  @media(max-width:720px){ .ws-ask{padding-left:18px;} }
 
   /* logistics */
   .host-list{list-style:none;margin-top:36px;max-width:660px;}
@@ -278,9 +265,7 @@
     <div class="sec-body">
       <p>{{WORKSHOP_INTRO}}</p>
     </div>
-    <div class="prices">
-{{WS_PRICES}}
-    </div>
+    <p class="ws-ask">{{WORKSHOP_ASK}}</p>
     <div class="workshop-actions">
       {{WORKSHOP_CTA}}
     </div>

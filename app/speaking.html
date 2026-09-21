@@ -353,29 +353,16 @@
     .topics td.t-name{font-size:20px;width:auto;margin-bottom:8px;}
   }
 
-  /* workshop price blocks */
-  .prices{margin-top:46px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;}
-  .price{
-    border:1px solid rgba(26,36,50,.18);border-radius:3px;padding:32px;
-    background:rgba(255,255,255,.42);
+  /* workshop: no prices (20 Sep 2026). One line, one button. */
+  .ws-ask{
+    margin-top:40px;font-family:var(--serif);font-weight:400;
+    font-size:clamp(22px,2.4vw,30px);line-height:1.35;color:#10161f;
+    max-width:720px;border-left:2px solid #a8813a;padding-left:24px;
   }
-  .price h3{
-    font-size:12px;letter-spacing:2.5px;text-transform:uppercase;
-    color:#a8813a;font-weight:600;margin-bottom:16px;
-  }
-  .price .amount{
-    font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:#10161f;
-  }
-  .price .amount span{font-size:16px;font-family:var(--sans);color:#6b6455;margin-left:6px;}
-  .price .cap{
-    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
-    color:#6b6455;margin-top:14px;
-  }
-  .price .note{font-size:15.5px;color:#4a5262;margin-top:18px;line-height:1.6;}
-  .workshop-actions{margin-top:40px;display:flex;gap:18px;flex-wrap:wrap;}
-  .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;}
+  .workshop-actions{margin-top:32px;display:flex;gap:18px;flex-wrap:wrap;}
+  .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;cursor:pointer;}
   .btn-ink:hover{background:rgba(26,36,50,.06);}
-  @media(max-width:720px){ .prices{grid-template-columns:1fr;} }
+  @media(max-width:720px){ .ws-ask{padding-left:18px;} }
 
   /* logistics */
   .host-list{list-style:none;margin-top:36px;max-width:660px;}
@@ -513,30 +500,12 @@
   <div class="frame">
     <h2>The workshop</h2>
     <div class="sec-body">
-      <p>The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only. All three are fixed scope, so the price on this page is the price. Larger groups, a series run across several teams, or ongoing advisory work are quoted separately.</p>
+      <p>The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only.</p>
     </div>
-    <div class="prices">
-      <div class="price">
-        <h3>Three hours, in-house</h3>
-        <div class="amount">$2,500 CAD</div>
-        <div class="cap">Up to 12 participants</div>
-        <p class="note">Same fee whether you bring 6 people or 12, so you are free to invite the room that needs to be there.</p>
-      </div>
-      <div class="price">
-        <h3>Three hours, individual seats</h3>
-        <div class="amount">$250 CAD<span>per person</span></div>
-        <div class="cap">Minimum 6, capped at 12</div>
-        <p class="note">For leaders who want the session without booking one for their whole organisation. Scheduled dates appear on the calendar.</p>
-      </div>
-      <div class="price">
-        <h3>Full day, in-house</h3>
-        <div class="amount">$4,500 CAD</div>
-        <div class="cap">Up to 12 participants</div>
-        <p class="note">Three hours moves fast and covers one change. The full day gives each of the four stages its own working session, room for more than one change, and time to leave with a written plan your team has agreed on.</p>
-      </div>
-    </div>
+    <p class="ws-ask">Systovation Evolution Ecosystem — the state where change runs as permanent infrastructure, not a project: the organisation’s pace of adaptation matched to its environment, so resistance never forms.</p>
     <div class="workshop-actions">
-      <a class="btn btn-ink" href="https://cal.com/sukantratnakar/workshop-enquiry" target="_blank" rel="noopener" data-utm>Enquire about a workshop</a>
+      <a class="btn btn-ink" href="https://cal.com/sukantratnakar/workshop-enquiry" target="_blank" rel="noopener" data-utm
+        data-cal-link="sukantratnakar/workshop-enquiry" data-cal-config='{"theme":"dark"}'>Book a call</a>
     </div>
   </div>
 </section>

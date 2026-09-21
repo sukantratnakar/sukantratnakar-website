@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-09-07",
+  "_version": "2026-09-20b",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -62,30 +62,10 @@
     }
   ],
   "workshop": {
-    "intro": "The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only. All three are fixed scope, so the price on this page is the price. Larger groups, a series run across several teams, or ongoing advisory work are quoted separately.",
-    "tiers": [
-      {
-        "label": "Three hours, in-house",
-        "fee": "$2,500 CAD",
-        "unit": "",
-        "cap": "Up to 12 participants",
-        "note": "Same fee whether you bring 6 people or 12, so you are free to invite the room that needs to be there."
-      },
-      {
-        "label": "Three hours, individual seats",
-        "fee": "$250 CAD",
-        "unit": "per person",
-        "cap": "Minimum 6, capped at 12",
-        "note": "For leaders who want the session without booking one for their whole organisation. Scheduled dates appear on the calendar."
-      },
-      {
-        "label": "Full day, in-house",
-        "fee": "$4,500 CAD",
-        "unit": "",
-        "cap": "Up to 12 participants",
-        "note": "Three hours moves fast and covers one change. The full day gives each of the four stages its own working session, room for more than one change, and time to leave with a written plan your team has agreed on."
-      }
-    ]
+    "intro": "The talk opens a door. The workshop walks through it — hands on your own situation, working the four stages against a change your organisation is actually facing, not a case study. In person only.",
+    "ask_line": "Systovation Evolution Ecosystem — the state where change runs as permanent infrastructure, not a project: the organisation’s pace of adaptation matched to its environment, so resistance never forms.",
+    "cta_label": "Book a call",
+    "_note": "NO PRICES HERE, DELIBERATELY (20 Sep 2026). The three priced tiers were removed on request. The section is now the intro, the ask_line, and one button that opens the workshop-enquiry calendar in a Cal.com popup. Do not reintroduce a fee, tier or amount field."
   },
   "logistics": {
     "host_provides": [
@@ -136,7 +116,7 @@
       "workshop_heading": "The workshop",
       "workshop_inhouse_label": "In-house, at your organisation",
       "workshop_openseat_label": "Open workshop, individual seats",
-      "workshop_cta": "Enquire about a workshop",
+      "workshop_cta": "Book a call",
       "logistics_heading": "What a host needs to provide",
       "booking_heading": "Book a time",
       "booking_intro": "Pick a slot that suits your team. If nothing fits, write to me and we will find one.",

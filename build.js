@@ -116,21 +116,22 @@ const topicsRows = d.topics.map(t =>
 const takeaways = d.talk.takeaways.map(t => `        <li>${esc(t)}</li>`).join('\n');
 const hostItems = d.logistics.host_provides.map(t => `      <li>${esc(t)}</li>`).join('\n');
 
-/* workshop caps, composed from the numbers in the JSON */
-const wsPrices = d.workshop.tiers.map(t => `      <div class="price">
-        <h3>${esc(t.label)}</h3>
-        <div class="amount">${esc(t.fee)}${t.unit ? `<span>${esc(t.unit)}</span>` : ''}</div>
-        <div class="cap">${esc(t.cap)}</div>
-        <p class="note">${esc(t.note)}</p>
-      </div>`).join('\n');
+/* NO PRICES in the workshop section, deliberately (20 Sep 2026).
+   See workshop._note in speaking.json. Do not add a tier/fee/amount renderer. */
 
 /* booking + workshop CTAs — graceful when a Cal URL is cleared */
 const talkLink = calLinkFrom(d.booking.cal_talk_url);
 const workshopUrl = d.booking.cal_workshop_url;
 
+/* The button opens the enquiry calendar in a Cal.com popup, on the page.
+   data-cal-link is what Cal's embed script binds to; href is kept so the button
+   still works if that script is blocked or fails to load. */
+const wsCtaLabel = d.workshop.cta_label || sec.workshop_cta;
+const wsCalLink = calLinkFrom(workshopUrl);
 const workshopCta = workshopUrl
-  ? `<a class="btn btn-ink" href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm>${esc(sec.workshop_cta)}</a>`
-  : `<a class="btn btn-ink" href="mailto:${attr(d.booking.email)}?subject=${encodeURIComponent(sec.workshop_cta)}">${esc(sec.workshop_cta)}</a>`;
+  ? `<a class="btn btn-ink" href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm
+        data-cal-link="${attr(wsCalLink)}" data-cal-config='{"theme":"dark"}'>${esc(wsCtaLabel)}</a>`
+  : `<a class="btn btn-ink" href="mailto:${attr(d.booking.email)}?subject=${encodeURIComponent(wsCtaLabel)}">${esc(wsCtaLabel)}</a>`;
 
 let bookingEmbed, calScript;
 if (talkLink) {
@@ -228,7 +229,7 @@ const speakingOut = fill(speakingTpl, {
   WORKSHOP_LABEL: esc(sec.workshop_heading),
   WORKSHOP_HEADING: esc(sec.workshop_heading),
   WORKSHOP_INTRO: esc(d.workshop.intro),
-  WS_PRICES: wsPrices,
+  WORKSHOP_ASK: esc(d.workshop.ask_line),
   WORKSHOP_CTA: workshopCta,
   LOGISTICS_LABEL: esc(sec.logistics_heading),
   LOGISTICS_HEADING: esc(sec.logistics_heading),
@@ -271,4 +272,4 @@ console.log('built  app/index.html');
 console.log('built  app/speaking.html   (/speaking)');
 console.log('copied app/speaking.json   (/speaking.json)');
 console.log(`       video.show=${d.video.show}  proof.show=${p.proof.show}  topics=${d.topics.length}`);
-console.log(`       workshop tiers: ${d.workshop.tiers.map(t => t.fee).join(' / ')}`);
+console.log('       workshop: no prices, CTA opens the Cal popup');
