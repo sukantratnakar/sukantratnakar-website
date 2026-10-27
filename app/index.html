@@ -203,7 +203,7 @@
   }
   .shelf-row{
     display:grid;
-    gap:4vw;align-items:end;position:relative;padding-bottom:44px;
+    gap:4vw;align-items:start;position:relative;padding-bottom:44px;
   }
   .shelf-row--2{grid-template-columns:repeat(2,1fr);max-width:640px;}
   .shelf-row--3{grid-template-columns:repeat(3,1fr);}
@@ -218,16 +218,21 @@
     content:"";position:absolute;left:-4vw;right:-4vw;bottom:0;height:2px;
     background:linear-gradient(90deg, transparent, rgba(168,129,58,.55) 15%, rgba(168,129,58,.55) 85%, transparent);
   }
+  /* Covers are drawn to one scale across the whole shelf: each image is cropped
+     to the book, and --in is the book's real height in inches. The slot is
+     10 in tall (the tallest books), sized from a 4-column column width so the
+     widest book never overflows, and the same in every row. */
+  .shelf-group{container-type:inline-size;}
   .b{
     position:relative;text-align:center;text-decoration:none;color:inherit;
     display:flex;flex-direction:column;align-items:center;
   }
   .b .cover-slot{
-    height:clamp(220px,22vw,320px);width:100%;
+    height:min(320px,calc((100cqw - 12vw) / 4 * 1.35));width:100%;
     display:flex;align-items:flex-end;justify-content:center;
   }
   .b img{
-    max-height:100%;max-width:100%;width:auto;
+    height:calc(var(--in) * 10%);width:auto;max-width:none;
     filter:drop-shadow(0 34px 30px rgba(20,15,5,.32));
     transition:transform .35s cubic-bezier(.2,.8,.2,1);
   }
@@ -237,7 +242,7 @@
   @media(max-width:820px){
     .shelf::before{font-size:44vw;top:-6vw;}
     .shelf-row--2, .shelf-row--3, .shelf-row--4{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
-    .b .cover-slot{height:240px;}
+    .b .cover-slot{height:min(240px,calc((100cqw - 8vw) / 2 * 1.35));}
   }
 
   /* ============ CTA ============ */
@@ -406,12 +411,12 @@
       <div class="shelf-group-label"><span>Coming Next</span></div>
       <div class="shelf-row shelf-row--2">
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="images/covers/sunfish.png" alt="Sunfish Paradox"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/sunfish.png" alt="Sunfish Paradox" style="--in:10"></div>
           <div class="t">Sunfish Paradox</div>
           <div class="y">Coming soon</div>
         </a>
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="images/covers/default.png" alt="The Default"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/default.png" alt="The Default" style="--in:10"></div>
           <div class="t">The Default</div>
           <div class="y">Forthcoming</div>
         </a>
@@ -422,20 +427,20 @@
       <div class="shelf-group-label"><span>Already Released</span></div>
       <div class="shelf-row shelf-row--4">
         <a class="b" href="https://changeanesthesiology.com" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="https://changeanesthesiology.com/images/ca-cover-flat.jpg" alt="Change Anesthesiology — book cover"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/change-anesthesiology.png" alt="Change Anesthesiology — book cover" style="--in:10"></div>
           <div class="t">Change Anesthesiology</div>
           <div class="y">Book One of the Mola Series</div>
         </a>
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="images/covers/iknetix.png" alt="Iknetix"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/iknetix.png" alt="Iknetix" style="--in:8.5"></div>
           <div class="t">Iknetix</div>
         </a>
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="images/covers/zero.png" alt="ZERO"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/zero.png" alt="ZERO" style="--in:8.5"></div>
           <div class="t">ZERO</div>
         </a>
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
-          <div class="cover-slot"><img src="images/covers/whitespace.png" alt="White Space Thinking"></div>
+          <div class="cover-slot"><img src="images/covers/shelf/whitespace.png" alt="White Space Thinking" style="--in:8.5"></div>
           <div class="t">White Space Thinking</div>
         </a>
       </div>

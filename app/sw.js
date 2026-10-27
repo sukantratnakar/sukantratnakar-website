@@ -4,7 +4,7 @@
  * - Auto-sync with instant updates
  */
 
-const CACHE_NAME = 'sukant-ba1bb574';
+const CACHE_NAME = 'sukant-c0bf59f5';
 
 const PRECACHE_ASSETS = [
   '/',
