@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-10-26b-prechange",
+  "_version": "2026-10-26c-prechange",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -13,9 +13,9 @@
     ]
   },
   "talk": {
-    "length_minutes": 45,
-    "subtitle": "A 45-minute talk on why change stalls — and what to fix before it starts",
-    "audience_line": "For a leadership team, a board, a credit union or an all-staff session. 45 minutes with questions.",
+    "length_minutes": 30,
+    "subtitle": "A 30-minute talk on why change stalls — and what to fix before it starts",
+    "audience_line": "For a leadership team, a board, a credit union or an all-staff session. 30 minutes with questions.",
     "signature_title": "The signature talk: Change Anesthesiology",
     "body": [
       "My argument is that we have been treating the wrong condition. Resistance is not the obstacle — it is the signal. It tells you something true about the conditions upstream: drained energy, narrow perspective, minds already full before your project arrived. The real work happens before the initiative begins.",
@@ -69,18 +69,18 @@
   "logistics": {
     "host_provides": [
       "A room. If you have a screen or projector I'll use it; otherwise I bring my own.",
-      "45 minutes for the talk, three hours or a full day for the workshop — plus a few minutes either side.",
+      "30 minutes for the talk, three hours or a full day for the workshop — plus a few minutes either side.",
       "For a full day, lunch and refreshments for your people. I do not cater.",
       "Nothing else. No pre-reading, no prep from your team."
     ],
-    "delivery": "The 45-minute talk runs in person in Saskatoon and within 100 km, or online anywhere. The workshop is always in person. Beyond 100 km, anywhere in North America, travel and accommodation are on the host."
+    "delivery": "The 30-minute talk runs in person in Saskatoon and within 100 km, or online anywhere. The workshop is always in person. Beyond 100 km, anywhere in North America, travel and accommodation are on the host."
   },
   "booking": {
     "website": "sukantratnakar.com",
     "email": "sukant@quantraz.com",
     "phone": "+1 236 991 3630",
     "contact_label": "For an initial conversation:",
-    "cal_talk_url": "https://cal.com/sukantratnakar/speaking-talk",
+    "cal_talk_url": "https://cal.com/sukantratnakar/speak",
     "cal_workshop_url": "https://cal.com/sukantratnakar/workshop-enquiry",
     "_note": "Both Cal.com event types exist and these links are live."
   },
@@ -91,12 +91,12 @@
   },
   "teaser": {
     "heading": "Talks and workshops",
-    "line": "A 45-minute talk on why change stalls — for leadership teams, boards and credit unions.",
+    "line": "A 30-minute talk on why change stalls — for leadership teams, boards and credit unions.",
     "cta": "See speaking →"
   },
   "meta": {
     "page_title": "Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management",
-    "page_description": "A 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
+    "page_description": "A 30-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
   },
   "page": {
     "_comment": "Page chrome: headings, button labels, FAQ, proof and the PDF. Edit here too — the templates contain no text of their own.",
@@ -107,7 +107,7 @@
       "cta_secondary": "See The Prechange Way →"
     },
     "sections": {
-      "talk_heading": "The 45-minute talk",
+      "talk_heading": "The 30-minute talk",
       "takeaways_heading": "What your people take away",
       "topics_heading": "Seven talks to choose from",
       "topics_col_talk": "Talk",
@@ -119,7 +119,7 @@
       "logistics_heading": "What a host needs to provide",
       "booking_heading": "Book a time",
       "booking_intro": "Pick a slot that suits your team. If nothing fits, write to me and we will find one.",
-      "booking_talk_label": "The 45-minute talk",
+      "booking_talk_label": "The 30-minute talk",
       "booking_workshop_label": "Workshop enquiry",
       "about_heading": "About Sukant",
       "about_books_link": "See the full catalogue",
@@ -151,7 +151,7 @@
     },
     "faq": [
       {
-        "q": "Do you charge for the 45-minute talk?",
+        "q": "Do you charge for the 30-minute talk?",
         "a": "No. There is no fee, and no obligation to book anything after it."
       },
       {
@@ -164,7 +164,7 @@
       },
       {
         "q": "Can you deliver online?",
-        "a": "The 45-minute talk, yes — anywhere. The workshop is in person only; it does not work as a screen session."
+        "a": "The 30-minute talk, yes — anywhere. The workshop is in person only; it does not work as a screen session."
       },
       {
         "q": "How far will you travel?",
