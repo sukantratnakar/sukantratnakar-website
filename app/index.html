@@ -94,7 +94,7 @@
     transition:transform .2s ease, opacity .2s ease;
   }
   .btn:hover{transform:translateY(-2px);opacity:.9;}
-  .btn-gold{background:var(--gold);color:var(--navy);font-weight:600;}
+  .btn-gold{background:var(--gold);color:var(--navy);font-weight:600;border:1px solid var(--gold);}
   .btn-line{border:1px solid rgba(201,162,75,.5);color:var(--gold-2);}
   .hero-photo{position:relative;}
   .hero-photo::before{
@@ -121,13 +121,15 @@
     font-family:var(--serif);font-size:clamp(26px,3vw,36px);font-weight:400;
     line-height:1.35;font-style:italic;color:#10161f;max-width:none;margin-bottom:34px;
   }
+  /* equal-width pills in a grid, so both edges line up with the paragraph above */
   .fields{
-    margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;
+    margin-top:40px;display:grid;grid-template-columns:repeat(2,1fr);gap:10px;max-width:620px;
   }
   .fields span{
-    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;
-    border:1px solid rgba(26,36,50,.25);border-radius:999px;padding:8px 18px;color:#3c4657;
+    font-size:12.5px;letter-spacing:1px;text-transform:uppercase;text-align:center;
+    border:1px solid rgba(26,36,50,.25);border-radius:999px;padding:8px 14px;color:#3c4657;
   }
+  @media(max-width:480px){ .fields{grid-template-columns:1fr;} }
 
   /* ============ BOOK ============ */
   .book{padding:140px 0;position:relative;overflow:hidden;}
@@ -374,6 +376,7 @@
         <p class="price">Price: US$49.</p>
         <div class="hero-actions">
           <span class="btn btn-off" aria-disabled="true">Coming soon</span>
+          <a class="btn btn-line" href="https://prechangeway.com/book" target="_blank" rel="noopener">About the book</a>
         </div>
       </article>
     </div>
