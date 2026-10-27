@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management</title>
-<meta name="description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<meta name="description" content="A 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
 <link rel="canonical" href="https://sukantratnakar.com/speaking">
 <meta name="theme-color" content="#0c1522">
 <link rel="icon" href="/apple-touch-icon.png">
@@ -14,12 +14,12 @@
 <meta property="og:url" content="https://sukantratnakar.com/speaking">
 <meta property="og:site_name" content="Sukant Ratnakar">
 <meta property="og:title" content="Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management">
-<meta property="og:description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<meta property="og:description" content="A 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
 <meta property="og:image" content="https://sukantratnakar.com/images/portrait.png">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management">
-<meta name="twitter:description" content="A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
+<meta name="twitter:description" content="A 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly.">
 <meta name="twitter:image" content="https://sukantratnakar.com/images/portrait.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -132,13 +132,25 @@
     font-family:var(--serif);font-size:22vw;font-weight:300;line-height:1;
     color:rgba(245,241,232,0.028);letter-spacing:-.5vw;pointer-events:none;user-select:none;
   }
-  .book-grid{display:grid;grid-template-columns:.95fr 1.25fr;gap:5vw;align-items:center;position:relative;}
+  /* two books, same size; subgrid keeps each text row level across both cards */
+  .book-pair{display:grid;grid-template-columns:repeat(2,1fr);column-gap:6vw;position:relative;}
+  .book-card{display:grid;grid-row:span 9;grid-template-rows:subgrid;row-gap:0;align-items:start;}
+  .book-cover{height:clamp(300px,32vw,440px);display:flex;align-items:flex-end;justify-content:flex-start;margin-bottom:34px;}
+  .book-cover picture{height:100%;}
   .book-cover img{
-    width:100%;max-width:400px;
+    height:100%;width:auto;max-width:100%;object-fit:contain;
     filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));
     transition:transform .4s ease;
   }
   .book-cover img:hover{transform:translateY(-8px) rotate(-.5deg);}
+  .book-card .launch-tag{justify-self:start;margin-bottom:22px;}
+  .book .sub{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.9vw,23px);color:var(--gold-2);line-height:1.4;margin-top:10px;}
+  .book .byline{font-size:15px;color:var(--cream);margin-top:22px;}
+  .book .pub{font-size:13px;letter-spacing:1px;color:var(--mute);margin-top:2px;}
+  .book .price{font-size:15px;color:var(--cream);margin-top:18px;}
+  .book .hero-actions{margin-top:28px;}
+  .btn-off{border:1px solid rgba(125,135,152,.4);color:var(--mute);cursor:default;}
+  .btn-off:hover{transform:none;opacity:1;}
   .launch-tag{
     display:inline-block;font-size:12px;letter-spacing:3px;text-transform:uppercase;
     color:var(--navy);background:var(--gold);padding:7px 16px;border-radius:2px;margin-bottom:28px;font-weight:600;
@@ -149,11 +161,17 @@
     font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);
     color:var(--gold-2);line-height:1.45;border-left:2px solid var(--gold);padding-left:22px;margin-bottom:26px;
   }
-  .book p.desc{color:var(--mute);max-width:520px;margin-bottom:38px;font-size:16px;}
   @media(max-width:820px){
-    .book-grid{grid-template-columns:1fr;}
-    .book-cover img{max-width:260px;}
+    .book-pair{grid-template-columns:1fr;row-gap:90px;}
+    .book-card{grid-row:auto;grid-template-rows:none;}
+    .book-cover{height:320px;}
   }
+
+  /* ============ PRECHANGE LIVE ============ */
+  .live{padding:0 0 130px;}
+  .live-inner{border-top:1px solid rgba(201,162,75,.22);border-bottom:1px solid rgba(201,162,75,.22);padding:48px 0;}
+  .live h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.4vw,44px);line-height:1.2;color:#fdfaf3;}
+  .live p{color:var(--mute);font-size:16px;margin:16px 0 30px;max-width:560px;}
 
   /* ============ SHELF ============ */
   .shelf{padding:150px 0 160px;background:var(--cream);color:var(--ink);position:relative;overflow:hidden;}
@@ -183,6 +201,13 @@
   }
   .shelf-row--2{grid-template-columns:repeat(2,1fr);max-width:640px;}
   .shelf-row--3{grid-template-columns:repeat(3,1fr);}
+  .shelf-row--4{grid-template-columns:repeat(4,1fr);}
+  .ca-note{position:relative;max-width:640px;margin-top:40px;}
+  .ca-note .pull{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,25px);color:#10161f;line-height:1.45;border-left:2px solid var(--gold);padding-left:20px;margin-bottom:18px;}
+  .ca-note p.desc{color:#6b6455;font-size:16px;}
+  .ca-note p.desc a{color:#a8813a;}
+  .ca-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px;}
+  .ca-links .btn{border:1px solid rgba(26,36,50,.3);color:var(--ink);padding:13px 24px;}
   .shelf-row::after{
     content:"";position:absolute;left:-4vw;right:-4vw;bottom:0;height:2px;
     background:linear-gradient(90deg, transparent, rgba(168,129,58,.55) 15%, rgba(168,129,58,.55) 85%, transparent);
@@ -205,7 +230,7 @@
   .b .y{font-size:12px;color:#9a937f;margin-top:3px;}
   @media(max-width:820px){
     .shelf::before{font-size:44vw;top:-6vw;}
-    .shelf-row--2, .shelf-row--3{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
+    .shelf-row--2, .shelf-row--3, .shelf-row--4{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
     .b .cover-slot{height:240px;}
   }
 
@@ -363,6 +388,8 @@
   .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;cursor:pointer;}
   .btn-ink:hover{background:rgba(26,36,50,.06);}
   @media(max-width:720px){ .ws-ask{padding-left:18px;} }
+  .pw-line{margin-top:0;}
+  .sec-cream p.see-note{margin-top:48px;max-width:640px;font-size:15px;line-height:1.6;color:#6b6455;}
 
   /* logistics */
   .host-list{list-style:none;margin-top:36px;max-width:660px;}
@@ -406,6 +433,7 @@
     font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:#10161f;
     border-left:2px solid #a8813a;padding-left:22px;
   }
+  .proof-link{display:inline-block;margin-top:18px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#a8813a;text-decoration:none;border-bottom:1px solid rgba(168,129,58,.4);padding-bottom:3px;}
   .proof-attr{margin-top:12px;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#6b6455;}
 
   /* faq */
@@ -434,7 +462,7 @@
         <p class="hero-aud">For a leadership team, a board, a credit union or an all-staff session. 45 minutes with questions.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#book-a-time">Book a talk</a>
-          <a class="btn btn-line" href="#workshop">See the Ecosystem</a>
+          <a class="btn btn-line" href="https://prechangeway.com" target="_blank" rel="noopener">See The Prechange Way →</a>
         </div>
       </div>
     </div>
@@ -448,7 +476,6 @@
     <div class="s-label">The 45-minute talk</div>
     <h2>The signature talk: Change Anesthesiology</h2>
     <div class="sec-body">
-      <p>For twenty years, roughly seven in ten change initiatives have fallen short — an estimated $2.3 trillion a year. The frameworks have multiplied; the number has not moved.</p>
       <p>My argument is that we have been treating the wrong condition. Resistance is not the obstacle — it is the signal. It tells you something true about the conditions upstream: drained energy, narrow perspective, minds already full before your project arrived. The real work happens before the initiative begins.</p>
       <p>Hence the name — in 1846, anaesthesia did not make surgery better, it made surgery survivable.</p>
     </div>
@@ -456,7 +483,7 @@
       <h3>What your people take away</h3>
       <ul>
         <li>A different first question: not who is resisting? but what conditions made resistance sensible?</li>
-        <li>A four-stage model they can apply to a change already underway, or one still on the drawing board.</li>
+        <li>A four-zone model they can apply to a change already underway, or one still on the drawing board.</li>
         <li>A practical read on why past initiatives stalled, before the next one launches.</li>
       </ul>
     </div>
@@ -472,6 +499,7 @@
       <p>Alice Turner Library, Saskatoon — public launch audience. Organised by Systovation and the Elite Club of Canada.</p>
       
     </div>
+    <a class="proof-link" href="https://prechangeway.com/events#spotlight-change-anesthesiology-2026-08" target="_blank" rel="noopener">Photos and video →</a>
   </div>
 </section>
 
@@ -496,17 +524,13 @@
   </div>
 </section>
 
-<section class="sec-cream reveal" id="workshop">
+<section class="sec-cream reveal" id="prechange-way">
   <div class="frame">
-    <h2>Systovation Evolution Ecosystem</h2>
-    <div class="sec-body">
-      <p>The state where change runs as permanent infrastructure, not a project: the organisation’s pace of adaptation matched to its environment, so resistance never forms.</p>
-    </div>
-    
+    <p class="ws-ask pw-line">The Prechange Way: the stage before change, built on the Tilth approach.</p>
     <div class="workshop-actions">
-      <a class="btn btn-ink" href="https://cal.com/sukantratnakar/workshop-enquiry" target="_blank" rel="noopener" data-utm
-        data-cal-link="sukantratnakar/workshop-enquiry" data-cal-config='{"theme":"dark"}'>Book a call</a>
+      <a class="btn btn-ink" href="https://prechangeway.com" target="_blank" rel="noopener">See The Prechange Way →</a>
     </div>
+    <p class="see-note">Coming in 2027: the Systovation Evolution Ecosystem. Organizations as systems that keep evolving themselves, self-governing and self-monitoring, to keep pace with technology.</p>
   </div>
 </section>
 
@@ -548,7 +572,7 @@
       </div>
       <div class="faq-item">
         <div class="faq-q">Will this turn into a sales pitch?</div>
-        <p class="faq-a">No. The talk is the talk. If you want to go further there is a workshop, and it is priced on this page.</p>
+        <p class="faq-a">No. The talk is the talk. If you want to go further there is a workshop; book a call and we can talk it through.</p>
       </div>
       <div class="faq-item">
         <div class="faq-q">We have more than 12 people, or we want more than one session.</div>
@@ -582,7 +606,8 @@
       <a href="https://changeanesthesiology.com" target="_blank" rel="noopener">Change Anesthesiology</a>
       <a href="https://systovation.com" target="_blank" rel="noopener">Systovation</a>
       <a href="https://quantraz.com" target="_blank" rel="noopener">Quantraz</a>
-      <a href="https://prechangeway.com" target="_blank" rel="noopener">Events</a>
+      <a href="https://prechangeway.com" target="_blank" rel="noopener">The Prechange Way</a>
+      <a href="https://prechangeway.com/events" target="_blank" rel="noopener">Events</a>
       <a href="https://www.linkedin.com/in/sukant/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:sukant@quantraz.com">Email</a>
     </div>

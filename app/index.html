@@ -132,13 +132,25 @@
     font-family:var(--serif);font-size:22vw;font-weight:300;line-height:1;
     color:rgba(245,241,232,0.028);letter-spacing:-.5vw;pointer-events:none;user-select:none;
   }
-  .book-grid{display:grid;grid-template-columns:.95fr 1.25fr;gap:5vw;align-items:center;position:relative;}
+  /* two books, same size; subgrid keeps each text row level across both cards */
+  .book-pair{display:grid;grid-template-columns:repeat(2,1fr);column-gap:6vw;position:relative;}
+  .book-card{display:grid;grid-row:span 9;grid-template-rows:subgrid;row-gap:0;align-items:start;}
+  .book-cover{height:clamp(300px,32vw,440px);display:flex;align-items:flex-end;justify-content:flex-start;margin-bottom:34px;}
+  .book-cover picture{height:100%;}
   .book-cover img{
-    width:100%;max-width:400px;
+    height:100%;width:auto;max-width:100%;object-fit:contain;
     filter:drop-shadow(0 40px 60px rgba(0,0,0,.55));
     transition:transform .4s ease;
   }
   .book-cover img:hover{transform:translateY(-8px) rotate(-.5deg);}
+  .book-card .launch-tag{justify-self:start;margin-bottom:22px;}
+  .book .sub{font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.9vw,23px);color:var(--gold-2);line-height:1.4;margin-top:10px;}
+  .book .byline{font-size:15px;color:var(--cream);margin-top:22px;}
+  .book .pub{font-size:13px;letter-spacing:1px;color:var(--mute);margin-top:2px;}
+  .book .price{font-size:15px;color:var(--cream);margin-top:18px;}
+  .book .hero-actions{margin-top:28px;}
+  .btn-off{border:1px solid rgba(125,135,152,.4);color:var(--mute);cursor:default;}
+  .btn-off:hover{transform:none;opacity:1;}
   .launch-tag{
     display:inline-block;font-size:12px;letter-spacing:3px;text-transform:uppercase;
     color:var(--navy);background:var(--gold);padding:7px 16px;border-radius:2px;margin-bottom:28px;font-weight:600;
@@ -149,11 +161,17 @@
     font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,26px);
     color:var(--gold-2);line-height:1.45;border-left:2px solid var(--gold);padding-left:22px;margin-bottom:26px;
   }
-  .book p.desc{color:var(--mute);max-width:520px;margin-bottom:38px;font-size:16px;}
   @media(max-width:820px){
-    .book-grid{grid-template-columns:1fr;}
-    .book-cover img{max-width:260px;}
+    .book-pair{grid-template-columns:1fr;row-gap:90px;}
+    .book-card{grid-row:auto;grid-template-rows:none;}
+    .book-cover{height:320px;}
   }
+
+  /* ============ PRECHANGE LIVE ============ */
+  .live{padding:0 0 130px;}
+  .live-inner{border-top:1px solid rgba(201,162,75,.22);border-bottom:1px solid rgba(201,162,75,.22);padding:48px 0;}
+  .live h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.4vw,44px);line-height:1.2;color:#fdfaf3;}
+  .live p{color:var(--mute);font-size:16px;margin:16px 0 30px;max-width:560px;}
 
   /* ============ SHELF ============ */
   .shelf{padding:150px 0 160px;background:var(--cream);color:var(--ink);position:relative;overflow:hidden;}
@@ -183,6 +201,13 @@
   }
   .shelf-row--2{grid-template-columns:repeat(2,1fr);max-width:640px;}
   .shelf-row--3{grid-template-columns:repeat(3,1fr);}
+  .shelf-row--4{grid-template-columns:repeat(4,1fr);}
+  .ca-note{position:relative;max-width:640px;margin-top:40px;}
+  .ca-note .pull{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,25px);color:#10161f;line-height:1.45;border-left:2px solid var(--gold);padding-left:20px;margin-bottom:18px;}
+  .ca-note p.desc{color:#6b6455;font-size:16px;}
+  .ca-note p.desc a{color:#a8813a;}
+  .ca-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px;}
+  .ca-links .btn{border:1px solid rgba(26,36,50,.3);color:var(--ink);padding:13px 24px;}
   .shelf-row::after{
     content:"";position:absolute;left:-4vw;right:-4vw;bottom:0;height:2px;
     background:linear-gradient(90deg, transparent, rgba(168,129,58,.55) 15%, rgba(168,129,58,.55) 85%, transparent);
@@ -205,7 +230,7 @@
   .b .y{font-size:12px;color:#9a937f;margin-top:3px;}
   @media(max-width:820px){
     .shelf::before{font-size:44vw;top:-6vw;}
-    .shelf-row--2, .shelf-row--3{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
+    .shelf-row--2, .shelf-row--3, .shelf-row--4{grid-template-columns:repeat(2,1fr);gap:44px 8vw;padding-bottom:30px;max-width:none;}
     .b .cover-slot{height:240px;}
   }
 
@@ -270,6 +295,7 @@
           <a class="btn btn-line" href="https://cal.com/sukantratnakar/coffee-conversations" target="_blank" rel="noopener">Book a Conversation</a>
           <a class="btn btn-line" href="https://www.linkedin.com/in/sukant/" target="_blank" rel="noopener">Connect on LinkedIn</a>
           <a class="btn btn-line" href="#book">Latest Book</a>
+          <a class="btn btn-line" href="https://prechangeway.com/events" target="_blank" rel="noopener">Events</a>
         </div>
       </div>
       <div class="hero-photo">
@@ -283,7 +309,7 @@
   <div class="frame">
     <div class="teaser-inner">
       <div class="s-label s-label--dark">Talks and workshops</div>
-      <p class="teaser-line">A free 45-minute talk on why change stalls — for leadership teams, boards and credit unions.</p>
+      <p class="teaser-line">A 45-minute talk on why change stalls — for leadership teams, boards and credit unions.</p>
       <a class="teaser-link" href="/speaking">See speaking →</a>
     </div>
   </div>
@@ -310,21 +336,53 @@
 
 <section class="book reveal" id="book">
   <div class="frame">
-    <div class="book-grid">
-      <div class="book-cover">
-        <img src="https://changeanesthesiology.com/images/ca-cover-flat.jpg" alt="Change Anesthesiology — book cover">
-      </div>
-      <div>
-        <span class="launch-tag">Current Release</span>
-        <h2>Change Anesthesiology</h2>
-        <div class="series">Book One of the Mola Series</div>
-        <p class="pull">You never fight resistance. You dissolve the conditions that create it.</p>
-        <p class="desc">Seventy percent of change initiatives fail, and that number hasn't moved in twenty years. The book argues the profession has been fighting the wrong war — and shows what to build instead. It's also the foundation of a licensable program: the methodology behind Systovation, built to keep an organization change-ready as technology keeps moving. This one is Sukant's legacy work.</p>
-        <div class="hero-actions">
-          <a class="btn btn-gold" href="https://changeanesthesiology.com" target="_blank" rel="noopener">Explore the Book & Program</a>
-          <a class="btn btn-line" href="https://prechangeway.com" target="_blank" rel="noopener">Events, Photos &amp; Videos</a>
+    <div class="book-pair">
+      <article class="book-card">
+        <div class="book-cover">
+          <picture>
+            <source type="image/webp" srcset="images/books/prechange-paperback-v3@2x.webp">
+            <img src="images/books/prechange-paperback-v3.png" alt="The book Prechange by Sukant Ratnakar" width="480" height="527">
+          </picture>
         </div>
-      </div>
+        <span class="launch-tag">Now available</span>
+        <h2>Prechange</h2>
+        <p class="sub">Building the Capacity to Adapt Before Change Begins</p>
+        <p class="byline">Sukant Ratnakar, CMC</p>
+        <p class="pub">Systovation Publications</p>
+        <p class="price">Price: US$49.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://quantraz.com" target="_blank" rel="noopener">Buy the book</a>
+          <a class="btn btn-line" href="https://prechangeway.com/book" target="_blank" rel="noopener">About the book</a>
+        </div>
+      </article>
+      <article class="book-card">
+        <div class="book-cover">
+          <picture>
+            <source type="image/webp" srcset="images/books/tilth-book-3d@2x.webp">
+            <img src="images/books/tilth-book-3d.png" alt="The book Tilth by Sukant Ratnakar" width="480" height="527">
+          </picture>
+        </div>
+        <span class="launch-tag">Coming soon</span>
+        <h2>Tilth</h2>
+        <p class="sub">Preparing the Ground for Change</p>
+        <p class="byline">Sukant Ratnakar, CMC</p>
+        <p class="pub">Systovation Publications</p>
+        <p class="price">Price: US$49.</p>
+        <div class="hero-actions">
+          <span class="btn btn-off" aria-disabled="true">Coming soon</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="live reveal">
+  <div class="frame">
+    <div class="live-inner">
+      <div class="s-label s-label--dark">Prechange Live</div>
+      <h2>It's not resistance. It's the conditions.</h2>
+      <p>Live sessions for leaders, online and in person. Hosted by Quantraz.</p>
+      <a class="btn btn-line" href="https://prechangeway.com/events" target="_blank" rel="noopener">See upcoming events →</a>
     </div>
   </div>
 </section>
@@ -355,7 +413,12 @@
 
     <div class="shelf-group">
       <div class="shelf-group-label"><span>Already Released</span></div>
-      <div class="shelf-row shelf-row--3">
+      <div class="shelf-row shelf-row--4">
+        <a class="b" href="https://changeanesthesiology.com" target="_blank" rel="noopener">
+          <div class="cover-slot"><img src="https://changeanesthesiology.com/images/ca-cover-flat.jpg" alt="Change Anesthesiology — book cover"></div>
+          <div class="t">Change Anesthesiology</div>
+          <div class="y">Book One of the Mola Series</div>
+        </a>
         <a class="b" href="https://www.amazon.com/stores/author/B00DX83G7A" target="_blank" rel="noopener">
           <div class="cover-slot"><img src="images/covers/iknetix.png" alt="Iknetix"></div>
           <div class="t">Iknetix</div>
@@ -368,6 +431,14 @@
           <div class="cover-slot"><img src="images/covers/whitespace.png" alt="White Space Thinking"></div>
           <div class="t">White Space Thinking</div>
         </a>
+      </div>
+      <div class="ca-note">
+        <p class="pull">You never fight resistance. You dissolve the conditions that create it.</p>
+        <p class="desc">Change Anesthesiology argues the profession has been fighting the wrong war — and shows what to build instead. It's also the foundation of a licensable program: part of <a href="https://prechangeway.com" target="_blank" rel="noopener">The Prechange Way</a>, built to keep an organization change-ready as technology keeps moving. This one is Sukant's legacy work.</p>
+        <div class="ca-links">
+          <a class="btn" href="https://changeanesthesiology.com" target="_blank" rel="noopener">Explore the Book &amp; Program</a>
+          <a class="btn" href="https://prechangeway.com/events#spotlight-change-anesthesiology-2026-08" target="_blank" rel="noopener">Photos and video from the launch →</a>
+        </div>
       </div>
     </div>
   </div>
@@ -387,7 +458,8 @@
       <a href="https://changeanesthesiology.com" target="_blank" rel="noopener">Change Anesthesiology</a>
       <a href="https://systovation.com" target="_blank" rel="noopener">Systovation</a>
       <a href="https://quantraz.com" target="_blank" rel="noopener">Quantraz</a>
-      <a href="https://prechangeway.com" target="_blank" rel="noopener">Events</a>
+      <a href="https://prechangeway.com" target="_blank" rel="noopener">The Prechange Way</a>
+      <a href="https://prechangeway.com/events" target="_blank" rel="noopener">Events</a>
       <a href="https://www.linkedin.com/in/sukant/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:sukant@quantraz.com">Email</a>
     </div>

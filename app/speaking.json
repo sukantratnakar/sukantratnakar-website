@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-10-26-prechange",
+  "_version": "2026-10-26b-prechange",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -18,13 +18,12 @@
     "audience_line": "For a leadership team, a board, a credit union or an all-staff session. 45 minutes with questions.",
     "signature_title": "The signature talk: Change Anesthesiology",
     "body": [
-      "For twenty years, roughly seven in ten change initiatives have fallen short — an estimated $2.3 trillion a year. The frameworks have multiplied; the number has not moved.",
       "My argument is that we have been treating the wrong condition. Resistance is not the obstacle — it is the signal. It tells you something true about the conditions upstream: drained energy, narrow perspective, minds already full before your project arrived. The real work happens before the initiative begins.",
       "Hence the name — in 1846, anaesthesia did not make surgery better, it made surgery survivable."
     ],
     "takeaways": [
       "A different first question: not who is resisting? but what conditions made resistance sensible?",
-      "A four-stage model they can apply to a change already underway, or one still on the drawing board.",
+      "A four-zone model they can apply to a change already underway, or one still on the drawing board.",
       "A practical read on why past initiatives stalled, before the next one launches."
     ],
     "fee_statement": "There is no speaking fee.",
@@ -92,12 +91,12 @@
   },
   "teaser": {
     "heading": "Talks and workshops",
-    "line": "A free 45-minute talk on why change stalls — for leadership teams, boards and credit unions.",
+    "line": "A 45-minute talk on why change stalls — for leadership teams, boards and credit unions.",
     "cta": "See speaking →"
   },
   "meta": {
     "page_title": "Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management",
-    "page_description": "A free 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
+    "page_description": "A 45-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
   },
   "page": {
     "_comment": "Page chrome: headings, button labels, FAQ, proof and the PDF. Edit here too — the templates contain no text of their own.",
@@ -105,7 +104,7 @@
     "nav_label": "Speaking",
     "hero": {
       "cta_primary": "Book a talk",
-      "cta_secondary": "See the Ecosystem"
+      "cta_secondary": "See The Prechange Way →"
     },
     "sections": {
       "talk_heading": "The 45-minute talk",
@@ -131,6 +130,13 @@
       "filename": "Sukant_Ratnakar_Speaker_One_Pager.pdf",
       "label": "Download the one-page speaker note (PDF)"
     },
+    "prechange_way": {
+      "_comment": "Replaced the Systovation Evolution Ecosystem section, 26 Oct 2026. The Prechange Way is the umbrella; SEE is a brief 'coming in 2027' note.",
+      "line": "The Prechange Way: the stage before change, built on the Tilth approach.",
+      "cta_label": "See The Prechange Way →",
+      "url": "https://prechangeway.com",
+      "see_note": "Coming in 2027: the Systovation Evolution Ecosystem. Organizations as systems that keep evolving themselves, self-governing and self-monitoring, to keep pace with technology."
+    },
     "books_catalogue_url": "https://systovation.com",
     "portrait": "/images/portrait.png",
     "proof": {
@@ -138,6 +144,8 @@
       "lines": [
         "Alice Turner Library, Saskatoon — public launch audience. Organised by Systovation and the Elite Club of Canada."
       ],
+      "link_label": "Photos and video →",
+      "link_url": "https://prechangeway.com/events#spotlight-change-anesthesiology-2026-08",
       "quote": "",
       "quote_attribution": ""
     },
@@ -148,7 +156,7 @@
       },
       {
         "q": "Will this turn into a sales pitch?",
-        "a": "No. The talk is the talk. If you want to go further there is a workshop, and it is priced on this page."
+        "a": "No. The talk is the talk. If you want to go further there is a workshop; book a call and we can talk it through."
       },
       {
         "q": "We have more than 12 people, or we want more than one session.",

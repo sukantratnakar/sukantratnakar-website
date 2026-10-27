@@ -103,6 +103,7 @@ if (p.proof && p.proof.show && ((p.proof.lines || []).length || p.proof.quote)) 
       ${lines}
       ${quote}
     </div>
+    ${p.proof.link_url ? `<a class="proof-link" href="${attr(p.proof.link_url)}" target="_blank" rel="noopener">${esc(p.proof.link_label)}</a>` : ''}
   </div>
 </section>`;
 }
@@ -249,6 +250,10 @@ const speakingOut = fill(speakingTpl, {
   PDF_LINK: pdfLink,
   CATALOGUE_URL: attr(p.books_catalogue_url),
   CATALOGUE_LABEL: esc(sec.about_books_link),
+  PW_LINE: esc(p.prechange_way.line),
+  PW_CTA: esc(p.prechange_way.cta_label),
+  PW_URL: attr(p.prechange_way.url),
+  SEE_NOTE: esc(p.prechange_way.see_note),
   FAQ_HEADING: esc(sec.faq_heading),
   FAQ_ITEMS: faqItems,
 });
@@ -272,4 +277,4 @@ console.log('built  app/index.html');
 console.log('built  app/speaking.html   (/speaking)');
 console.log('copied app/speaking.json   (/speaking.json)');
 console.log(`       video.show=${d.video.show}  proof.show=${p.proof.show}  topics=${d.topics.length}`);
-console.log('       workshop: no prices, CTA opens the Cal popup');
+console.log('       prechange-way section (replaces the SEE section); SEE is a 2027 note');

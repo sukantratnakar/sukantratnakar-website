@@ -144,6 +144,8 @@
   .btn-ink{border:1px solid rgba(26,36,50,.45);color:#1a2432;cursor:pointer;}
   .btn-ink:hover{background:rgba(26,36,50,.06);}
   @media(max-width:720px){ .ws-ask{padding-left:18px;} }
+  .pw-line{margin-top:0;}
+  .sec-cream p.see-note{margin-top:48px;max-width:640px;font-size:15px;line-height:1.6;color:#6b6455;}
 
   /* logistics */
   .host-list{list-style:none;margin-top:36px;max-width:660px;}
@@ -187,6 +189,7 @@
     font-size:clamp(20px,2.2vw,26px);line-height:1.45;color:#10161f;
     border-left:2px solid #a8813a;padding-left:22px;
   }
+  .proof-link{display:inline-block;margin-top:18px;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#a8813a;text-decoration:none;border-bottom:1px solid rgba(168,129,58,.4);padding-bottom:3px;}
   .proof-attr{margin-top:12px;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:#6b6455;}
 
   /* faq */
@@ -215,7 +218,7 @@
         <p class="hero-aud">{{HERO_AUDIENCE}}</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="#book-a-time">{{HERO_CTA_PRIMARY}}</a>
-          <a class="btn btn-line" href="#workshop">{{HERO_CTA_SECONDARY}}</a>
+          <a class="btn btn-line" href="{{PW_URL}}" target="_blank" rel="noopener">{{HERO_CTA_SECONDARY}}</a>
         </div>
       </div>
     </div>
@@ -259,16 +262,13 @@
   </div>
 </section>
 
-<section class="sec-cream reveal" id="workshop">
+<section class="sec-cream reveal" id="prechange-way">
   <div class="frame">
-    <h2>{{WORKSHOP_HEADING}}</h2>
-    <div class="sec-body">
-      <p>{{WORKSHOP_INTRO}}</p>
-    </div>
-    {{WORKSHOP_ASK}}
+    <p class="ws-ask pw-line">{{PW_LINE}}</p>
     <div class="workshop-actions">
-      {{WORKSHOP_CTA}}
+      <a class="btn btn-ink" href="{{PW_URL}}" target="_blank" rel="noopener">{{PW_CTA}}</a>
     </div>
+    <p class="see-note">{{SEE_NOTE}}</p>
   </div>
 </section>
 
@@ -317,7 +317,8 @@
       <a href="https://changeanesthesiology.com" target="_blank" rel="noopener">Change Anesthesiology</a>
       <a href="https://systovation.com" target="_blank" rel="noopener">Systovation</a>
       <a href="https://quantraz.com" target="_blank" rel="noopener">Quantraz</a>
-      <a href="https://prechangeway.com" target="_blank" rel="noopener">Events</a>
+      <a href="https://prechangeway.com" target="_blank" rel="noopener">The Prechange Way</a>
+      <a href="https://prechangeway.com/events" target="_blank" rel="noopener">Events</a>
       <a href="https://www.linkedin.com/in/sukant/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="mailto:{{EMAIL}}">Email</a>
     </div>
