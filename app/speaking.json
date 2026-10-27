@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-09-21b",
+  "_version": "2026-10-26-prechange",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -87,7 +87,7 @@
   },
   "video": {
     "youtube_id": "",
-    "caption": "Ninety seconds from the launch of Change Anesthesiology — Alice Turner Library, Saskatoon, August 2026.",
+    "caption": "Ninety seconds from the launch of Change Anesthesiology. More talks, photos and videos at prechangeway.com.",
     "show": false
   },
   "teaser": {
@@ -136,7 +136,7 @@
     "proof": {
       "show": true,
       "lines": [
-        "Alice Turner Library, Saskatoon — public launch audience, 13 August 2026. Organised by Systovation and the Elite Club of Canada."
+        "Alice Turner Library, Saskatoon — public launch audience. Organised by Systovation and the Elite Club of Canada."
       ],
       "quote": "",
       "quote_attribution": ""
@@ -173,6 +173,7 @@
     ]
   },
   "_notes": {
+    "prechangeway": "26 Oct 2026: prechangeway.com is the one home for events, photos and videos. This site links there and does not copy event dates, photos or videos.",
     "logistics": "Section removed from the page 21 Sep 2026 on request. The data is kept here in case it is wanted back; the template no longer renders it."
   }
 }
