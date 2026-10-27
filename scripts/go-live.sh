@@ -16,8 +16,9 @@
 #   g. chown the live folder to sukantclawdbot:staff
 #   h. build as sukantclawdbot with /opt/homebrew/bin/node
 #   i. pm2 restart website, as sukantclawdbot
-#   j. push (as sukantclawdbot, using its GitHub credential helper)
-#   then: / and /speaking must answer 200, or it prints a warning and the restore command
+#   check: curl -I / and /speaking must answer 200; if not, print a warning and the
+#          restore command, exit with an error, and do NOT push
+#   j. push (as sukantclawdbot, using its GitHub credential helper), only after the check passes
 # Stops at the first error. Nothing after a failed step runs.
 
 set -euo pipefail
@@ -108,11 +109,8 @@ as_live /bin/sh -c "cd '${LIVE}' && '${NODE}' build.js"
 step "i. pm2 restart website"
 /usr/bin/sudo -u "${LIVE_USER}" -i pm2 restart website
 
-# j. push
-step "j. Pushing"
-as_live /usr/bin/git -C "${LIVE}" push origin HEAD
-
-# final check: / and /speaking must answer 200 (a few tries while pm2 brings the app up)
+# check: / and /speaking must answer 200 (a few tries while pm2 brings the app up).
+# Nothing is pushed unless both pass.
 step "Checking http://localhost:8082/ and /speaking"
 trap - ERR
 ok=0
@@ -124,22 +122,16 @@ for attempt in 1 2 3 4 5; do
 done
 /bin/echo "    /          ${home}"
 /bin/echo "    /speaking  ${speaking}"
-if [ "${ok}" = "1" ]; then
-  /bin/echo
-  /bin/echo "Live. Backup: ${ARCHIVE}"
-  exit 0
-fi
-
-FAILED_COPY="${LIVE_PARENT}/website-failed-${STAMP}"
-/bin/cat >&2 <<WARN
+if [ "${ok}" != "1" ]; then
+  FAILED_COPY="${LIVE_PARENT}/website-failed-${STAMP}"
+  /bin/cat >&2 <<WARN
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 WARNING: the live site did not answer 200 on both pages after the restart.
   /          ${home}
   /speaking  ${speaking}
 
-To put back the copy archived before this run (the merge has already been
-pushed to GitHub; this restores the live folder only), run:
+Nothing was pushed to GitHub. To put back the copy archived before this run, run:
 
 /usr/bin/sudo /bin/mv "${LIVE}" "${FAILED_COPY}" && /usr/bin/sudo /usr/bin/tar -xzf "${ARCHIVE}" -C "${LIVE_PARENT}" && /usr/bin/sudo /bin/mv "${FAILED_COPY}/node_modules" "${LIVE}/node_modules" && /usr/bin/sudo /usr/sbin/chown -R ${LIVE_USER}:staff "${LIVE}" && /usr/bin/sudo -u ${LIVE_USER} -i pm2 restart website
 
@@ -147,4 +139,13 @@ pushed to GitHub; this restores the live folder only), run:
 node_modules back. The failed copy stays at ${FAILED_COPY}.)
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 WARN
-exit 1
+  exit 1
+fi
+trap 'fail "a command failed on line ${LINENO}. Nothing after it ran."' ERR
+
+# j. push, last, only after both pages answered 200
+step "j. Pushing"
+as_live /usr/bin/git -C "${LIVE}" push origin HEAD
+
+/bin/echo
+/bin/echo "Live and pushed. Backup: ${ARCHIVE}"
