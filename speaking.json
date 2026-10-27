@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-10-26c-prechange",
+  "_version": "2026-10-26d-prechange",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -73,7 +73,7 @@
       "For a full day, lunch and refreshments for your people. I do not cater.",
       "Nothing else. No pre-reading, no prep from your team."
     ],
-    "delivery": "The 30-minute talk runs in person in Saskatoon and within 100 km, or online anywhere. The workshop is always in person. Beyond 100 km, anywhere in North America, travel and accommodation are on the host."
+    "delivery": "The 30-minute talk is offered online by Google Meet, in person at your office in Saskatoon, or in person at my studio in Willowgrove, Saskatoon. The workshop is always in person."
   },
   "booking": {
     "website": "sukantratnakar.com",
@@ -96,7 +96,7 @@
   },
   "meta": {
     "page_title": "Speaking — Sukant Ratnakar | Talks and workshops on change, perspective and evolution management",
-    "page_description": "A 30-minute talk for leadership teams, boards and credit unions, and a three-hour workshop. Based in Saskatoon, available online anywhere. Book directly."
+    "page_description": "A 30-minute talk for leadership teams, boards and credit unions, online by Google Meet or in person in Saskatoon, and a three-hour workshop. Book directly."
   },
   "page": {
     "_comment": "Page chrome: headings, button labels, FAQ, proof and the PDF. Edit here too — the templates contain no text of their own.",
@@ -164,11 +164,11 @@
       },
       {
         "q": "Can you deliver online?",
-        "a": "The 30-minute talk, yes — anywhere. The workshop is in person only; it does not work as a screen session."
+        "a": "The 30-minute talk, yes — by Google Meet. The workshop is in person only; it does not work as a screen session."
       },
       {
-        "q": "How far will you travel?",
-        "a": "Saskatoon and within 100 km at no charge. Anywhere else in North America, travel and accommodation are on the host."
+        "q": "Where does the talk take place?",
+        "a": "In one of three ways: online by Google Meet, in person at your office in Saskatoon, or in person at my studio in Willowgrove, Saskatoon."
       },
       {
         "q": "Can we record it?",
