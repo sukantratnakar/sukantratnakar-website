@@ -183,7 +183,7 @@ if (talkLink) {
 }
 
 const bookingAlt = workshopUrl
-  ? `<span>${esc(sec.booking_workshop_label)}:</span> <a href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm>${esc(workshopUrl.replace(/^https?:\/\//, ''))}</a>`
+  ? `<span>${esc(sec.booking_workshop_label)}:</span> <a href="${attr(workshopUrl)}" target="_blank" rel="noopener" data-utm>Book a call</a>`
   : `<span>${esc(sec.booking_workshop_label)}:</span> <a href="mailto:${attr(d.booking.email)}">${esc(d.booking.email)}</a>`;
 
 /* speaker one-pager — only linked when the file is actually there */

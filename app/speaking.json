@@ -1,6 +1,6 @@
 {
   "_comment": "Single source of truth for all speaking content. The /speaking page, the homepage teaser and the one-page speaker PDF all read from this file. Edit here, nowhere else.",
-  "_version": "2026-10-26d-prechange",
+  "_version": "2026-10-28-prechange",
   "_canonical_url": "https://sukantratnakar.com/speaking",
   "person": {
     "name": "Sukant Ratnakar",
@@ -138,7 +138,7 @@
       "see_note": "Coming in 2027: the Systovation Evolution Ecosystem. Organizations as systems that keep evolving themselves, self-governing and self-monitoring, to keep pace with technology."
     },
     "books_catalogue_url": "https://systovation.com",
-    "portrait": "/images/portrait.png",
+    "portrait": "/images/portrait-2026.png",
     "proof": {
       "show": true,
       "lines": [
@@ -156,7 +156,7 @@
       },
       {
         "q": "Will this turn into a sales pitch?",
-        "a": "No. The talk is the talk. If you want to go further there is a workshop; book a call and we can talk it through."
+        "a": "No. The talk is the talk. If you want to take it further afterwards there is a way to do that, but it is never raised from the front of the room, and I will not follow up to sell you anything."
       },
       {
         "q": "We have more than 12 people, or we want more than one session.",
